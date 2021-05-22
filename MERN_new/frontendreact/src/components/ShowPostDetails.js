@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../App.scss';
 import axios from 'axios';
 
 class showPostDetails extends Component {
