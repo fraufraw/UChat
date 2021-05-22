@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.scss';
 import { Login, Register } from "./components/login/index";
@@ -10,7 +10,7 @@ import ShowPostDetails from './components/ShowPostDetails';
 import UpdatePostInfo from './components/UpdatePostInfo';
 
 
-class App extends React.Component {
+class App extends Component {
 
   constructor(props){
     super(props);
