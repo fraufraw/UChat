@@ -16,7 +16,7 @@ cd frontendreact
 npm install 下载node module 
 npm start就可打开你看到的app了
 
-
+查看远程分支请通过git branch -a
 
 Learn how to build a MERN app from "The MERN stack: A complete tutorial" Nur Islam Blog November 15, 2020 
 reference from https://blog.logrocket.com/mern-stack-tutorial/ 
