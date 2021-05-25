@@ -17,6 +17,9 @@ const MessageSchema = new mongoose.Schema({
   Postid:{
     type: String,
     required:true
+  },
+  Message_liked_number:{
+    type: Number
   }
 });
 
