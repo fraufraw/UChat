@@ -36,6 +36,11 @@ class UpdatePostInfo extends Component {
 
   };
 
+  //this will refresh the page
+  refreshPage(){ 
+    window.location.reload(); 
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -76,12 +81,13 @@ class UpdatePostInfo extends Component {
             updated_date: '',
             Postid: this.props.match.params.id  
         })
-        this.props.history.push('/');
+        this.props.history.push('/show-Post/'+this.props.match.params.id);
       })
       .catch(err => {
         console.log("Error in CreatePost!");
       })
-      
+
+    //this.refreshPage();
    };
 
 

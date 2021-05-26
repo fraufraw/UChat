@@ -33,28 +33,39 @@ router.get('/:typeId', (req, res) => {
 // @description Delete post by id
 // @access Public
 router.delete('/:typeId', (req, res) => {
-    Message.findOneAndDelete({Postid: req.params.typeId})
-      .then(post => res.json({ mgs: 'Post entry deleted successfully' }))
-      .catch(err => res.status(404).json({ error: 'No such a Post' }));
+    Message.deleteMany({Postid: req.params.typeId})
+      .then(message => res.json({ mgs: 'Message entry deleted successfully' }))
+      .catch(err => res.status(404).json({ error: 'No such a Message' }));
   });
 
-// @route GET api/posts/:id
-// @description Update post
+// @route GET api/message/:Messid
+// @description Update message
 // @access Public
-router.put('/:id', (req, res) => {
-    Message.findByIdAndUpdate(req.params.id, req.body)
-      .then(post => res.json({ msg: 'Updated successfully' }))
+router.put('/:Messid', (req, res) => {
+  //Message.findOneAndUpdate({ text: req.params.Messid}, req.body)
+  Message.findByIdAndUpdate(req.params.Messid, req.body)
+      .then(message => res.json({ msg: 'Updated successfully' }))
       .catch(err =>
         res.status(400).json({ error: 'Unable to update the Database' })
       );
   });
 
+  /* 
+router.put('/', (req, res) => {
+    //Message.findOneAndUpdate({ _id: req.params.Messid}, req.body.Message_liked_number)
+    Message.updateMany(req.body)
+      .then(message => res.json({ msg: 'Updated successfully' }))
+      .catch(err =>
+        res.status(400).json({ error: 'Unable to update the Database' })
+      );
+  });
+*/
 // @route GET api/posts
 // @description add/save post
 // @access Public
 router.post('/', (req, res) => {
     Message.create(req.body)
-      .then(post => res.json({ msg: 'Post added successfully' }))
+      .then(message => res.json({ msg: 'Message added successfully' }))
       .catch(err => res.status(400).json({ error: 'Unable to add this post' }));
   });
 

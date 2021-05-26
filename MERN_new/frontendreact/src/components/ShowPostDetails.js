@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
-//import { post } from '../../../routes/api/posts';
+
+function refreshPage() {
+  window.location.reload(false);
+}
 
 class showPostDetails extends Component {
   constructor(props) {
@@ -15,7 +18,7 @@ class showPostDetails extends Component {
       description: '',
       published_date: '',
       publisher: '',
-      Liked_number: 0
+      Liked_number: 0,
     };
   }
 
@@ -50,22 +53,21 @@ class showPostDetails extends Component {
   };
 
   //this will refresh the page
+  /* 
   refreshPage(){ 
-    window.location.reload(); 
+    return window.location.reload(); 
   }
-
+  */
   onDeleteClick (id) {
     axios
       .delete('http://localhost:8082/api/posts/'+id)
       .then(res => {
-        this.props.history.push("/");
+        //this.props.history.push("/");
       })
       .catch(err => {
         console.log("Error form ShowPostDetails_deleteClick");
       })
-  };
 
-  onDeleteClickMessage (id) {
     axios
       .delete('http://localhost:8082/api/message/'+id)
       .then(res => {
@@ -74,8 +76,23 @@ class showPostDetails extends Component {
       .catch(err => {
         console.log("Error form ShowPostDetails_deleteClick");
       })
+
   };
 
+  onDeleteClickMessage (id) {
+    axios
+      .delete('http://localhost:8082/api/message/'+id)
+      .then(res => {
+        this.props.history.push('/show-Post/'+id);
+      })
+      .catch(err => {
+        console.log("Error form ShowPostDetails_deleteClick");
+      })
+    
+    refreshPage();
+  };
+
+  //this one is to add like to Post
   clickAddLike(id){
     const data = {
       title: this.state.title,
@@ -87,22 +104,44 @@ class showPostDetails extends Component {
     };
 
     axios
-      .put('http://localhost:8082/api/posts/'+id, data)
+      .put('http://localhost:8082/api/posts/'+ id, data)
       .then(res => {
-        this.props.history.push('/show-Post/'+id);
+        this.props.history.push('/show-Post/'+ id);
       })
       .catch(err => {
         console.log("Error in UpdatePostInfo!");
       })
     
-    this.refreshPage()
+      refreshPage();
+  }
+
+  //this one is to add like to message
+  clickMessageAddLike(Mtext,Mauthor,update,like, Messid, id){
+    const message={
+      text: Mtext,
+      author: Mauthor,
+      updated_date: update,
+      Postid: id,
+      Message_liked_number: (like + 1)
+    }
+    axios
+      .put('http://localhost:8082/api/message/' + Messid, message)
+      .then(res => {
+        this.props.history.push('/show-Post/'+id);
+      })
+      .catch(err => {
+        console.log("Error in UpdateMessageInfo!");
+      })
+
+      refreshPage();
   }
 
 
 
   render() {
+    const post = this.state.post;
     const comments = this.state.comments;
-    console.log("PrintPost: " + comments);
+    //console.log("PrintPost: " + comments);
     //console.log("Print id: " + this.props.match.params.id);
     let commentList;
     if(!comments) {
@@ -110,25 +149,21 @@ class showPostDetails extends Component {
       } else {
         commentList = comments.map((comment,k) =>
         <tr key={k}>
-            <th scope="row">{comment.author}{":---"}  {comment.text}</th>
-            <td>{comment.updated_date} {comment.Postid}</td>
+            <th scope="row">{comment.author}{":---"}  {comment.text} </th>
+            <td>Date:{comment.updated_date} PostID:{comment.Postid} commentID:{comment._id}</td>
+            <td>Liked: {comment.Message_liked_number}</td>
+            <button type="button" className="btn btn-outline-warning float-left" onClick={this.clickMessageAddLike.bind(this,comment.text,comment.author,comment.updated_date,comment.Message_liked_number,comment._id,post._id)}>Like</button>
         </tr>
         );
       }
 
-    const post = this.state.post;
-    const title = this.state.title;
-    const author = this.state.author;
-    const description = this.state.description;
-    const published_date = this.state.published_date;
-    const publisher = this.state.publisher;
-    const Liked_number = this.state.Liked_number;
+    
     let PostItem = <div>
       <table className="navbar navbar-dark bg-dark mb-3">
         <tbody>
           <tr>
             <th scope="row"></th>
-            <td>Title</td>
+            <td>Title:</td>
             <td>{ post.title }</td>
           </tr>
           {/* 
@@ -140,24 +175,24 @@ class showPostDetails extends Component {
           */}
           <tr>
             <th scope="row"></th>
-            <td>Description</td>
+            <td>Description:</td>
             <td>{ post.description }</td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td>Publisher</td>
+            <td>Publisher:</td>
             <td>{ post.publisher }</td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td>Published Date</td>
+            <td>Published Date:</td>
             <td>{ post.published_date }</td>
           </tr>
 
           <tr>
             <th scope="row"></th>
             <td>Total Liked: {post.Liked_number}</td>
-            <td><button type="button" onClick={this.clickAddLike.bind(this,post._id)}>Like</button></td>
+            <td><button type="button" className="btn btn-outline-warning float-left" onClick={this.clickAddLike.bind(this,post._id)}>Like</button></td>
           </tr>
         </tbody>
       </table>

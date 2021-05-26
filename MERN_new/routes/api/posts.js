@@ -23,8 +23,8 @@ router.get('/', (req, res) => {
 // @route GET api/posts/:id
 // @description Get single post by id
 // @access Public
-router.get('/:id', (req, res) => {
-  Post.findById(req.params.id)
+router.get('/:getid', (req, res) => {
+  Post.findById(req.params.getid)
     .then(post => res.json(post))
     .catch(err => res.status(404).json({ nopostfound: 'No Post found' }));
 });
@@ -41,8 +41,8 @@ router.post('/', (req, res) => {
 // @route GET api/posts/:id
 // @description Update post
 // @access Public
-router.put('/:id', (req, res) => {
-  Post.findByIdAndUpdate(req.params.id, req.body)
+router.put('/:postid', (req, res) => {
+  Post.findByIdAndUpdate(req.params.postid, req.body)
     .then(post => res.json({ msg: 'Updated successfully' }))
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' })

@@ -9,6 +9,7 @@ const MessageSchema = new mongoose.Schema({
   },
   author: {
     type: String,
+    default: 'Guest'
   },
   updated_date: {
     type: Date,
@@ -19,7 +20,8 @@ const MessageSchema = new mongoose.Schema({
     required:true
   },
   Message_liked_number:{
-    type: Number
+    type: Number,
+    default: 0
   }
 });
 

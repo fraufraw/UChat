@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../App.css';
 
 const PostCard = (props) => {
@@ -16,6 +16,7 @@ const PostCard = (props) => {
                     </Link>
                 </h2>
                 <h3>{post.author}</h3>
+                <h4>Liked: {post.Liked_number}</h4>
                 <p>{post.description}</p>
             </div>
         </div>
