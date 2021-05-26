@@ -108,7 +108,7 @@ class UpdatePostInfo extends Component {
           <div className="col-md-8 m-auto">
           
           <form noValidate onSubmit={this.onSubmit}>
-              {/*
+            {/*
             <div className='form-group'>
               <label htmlFor="title">Title</label>
               <input

@@ -26,7 +26,8 @@ const PostSchema = new mongoose.Schema({
     default: Date.now
   },
   Liked_number:{
-    type: Number
+    type: Number,
+    default: 0
   }
 
 });
