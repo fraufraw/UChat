@@ -99,7 +99,7 @@ class UpdatePostInfo extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
+              <Link to="/show-list" className="btn btn-outline-warning float-left">
                   Show Post List
               </Link>
             </div>

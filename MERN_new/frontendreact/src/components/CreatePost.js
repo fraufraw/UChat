@@ -41,7 +41,7 @@ class CreatePost extends Component {
           published_date:'',
           publisher:''
         })
-        this.props.history.push('/');
+        this.props.history.push('/show-list');
       })
       .catch(err => {
         console.log("Error in CreatePost!");
