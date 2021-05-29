@@ -19,6 +19,9 @@ class showPostDetails extends Component {
       published_date: '',
       publisher: '',
       Liked_number: 0,
+      UserName: this.props.history.location.state.UserName,
+      PassWord: this.props.history.location.state.PassWord,
+      userId: this.props.history.location.state.userId
     };
   }
 
@@ -71,7 +74,16 @@ class showPostDetails extends Component {
     axios
       .delete('http://localhost:8082/api/message/'+id)
       .then(res => {
-        this.props.history.push("/show-list");
+        this.props.history.push
+        ({
+          pathname:"/show-list",
+          state:{
+              UserName: this.state.UserName,
+              PassWord: this.state.PassWord,
+              userId: this.state.userId
+          }
+        });
+        //("/show-list");
       })
       .catch(err => {
         console.log("Error form ShowPostDetails_deleteClick");
@@ -83,7 +95,7 @@ class showPostDetails extends Component {
     axios
       .delete('http://localhost:8082/api/message/'+id)
       .then(res => {
-        this.props.history.push('/show-Post/'+id);
+        //this.props.history.push('/show-Post/'+id);
       })
       .catch(err => {
         console.log("Error form ShowPostDetails_deleteClick");
@@ -106,7 +118,7 @@ class showPostDetails extends Component {
     axios
       .put('http://localhost:8082/api/posts/'+ id, data)
       .then(res => {
-        this.props.history.push('/show-Post/'+ id);
+        //this.props.history.push('/show-Post/'+ id);
       })
       .catch(err => {
         console.log("Error in UpdatePostInfo!");
@@ -127,7 +139,7 @@ class showPostDetails extends Component {
     axios
       .put('http://localhost:8082/api/message/' + Messid, message)
       .then(res => {
-        this.props.history.push('/show-Post/'+id);
+        //this.props.history.push('/show-Post/'+id);
       })
       .catch(err => {
         console.log("Error in UpdateMessageInfo!");
@@ -204,7 +216,9 @@ class showPostDetails extends Component {
           <div className="row">
             <div className="col-md-10 m-auto">
               <br /> <br />
-              <Link to="/show-list" className="btn btn-outline-warning float-left">
+              <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
                   Back
               </Link>
             </div>
@@ -240,7 +254,10 @@ class showPostDetails extends Component {
             </div>
 
             <div className="col-md-6">
-              <Link to={`/edit-Post/${post._id}`} className="btn btn-outline-info btn-lg btn-block">
+              <Link to={{pathname:`/edit-Post/${post._id}`, 
+                            state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-info btn-lg btn-block">
                     Add message
               </Link>
               <br />

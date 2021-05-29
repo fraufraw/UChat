@@ -12,7 +12,10 @@ class UpdatePostInfo extends Component {
       author: '',
       description: '',
       published_date: '',
-      publisher: ''
+      publisher: '',
+      UserName: this.props.history.location.state.UserName,
+      PassWord: this.props.history.location.state.PassWord,
+      userId: this.props.history.location.state.userId
     };
   }
 
@@ -63,7 +66,7 @@ class UpdatePostInfo extends Component {
 
     const message = {
         text: this.state.message,
-        author: "haven't connected to user",
+        author: this.state.UserName,
         //updated_date: this.state.published_date,
         updated_date: date,
         Postid: this.props.match.params.id
@@ -84,11 +87,20 @@ class UpdatePostInfo extends Component {
       .then(res => {
         this.setState({
             text: '',
-            author:  "haven't connected to user",
+            author:  this.state.UserName,
             updated_date: '',
             Postid: this.props.match.params.id  
         })
-        this.props.history.push('/show-Post/'+this.props.match.params.id);
+        this.props.history.push
+        ({
+          pathname:('/show-Post/'+this.props.match.params.id),
+          state:{
+              UserName: this.state.UserName,
+              PassWord: this.state.PassWord,
+              userId: this.state.userId
+          }
+        });
+        //('/show-Post/'+this.props.match.params.id);
       })
       .catch(err => {
         console.log("Error in CreatePost!");
@@ -106,7 +118,10 @@ class UpdatePostInfo extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to={`/show-Post/${this.props.match.params.id}`} className="btn btn-outline-warning float-left">
+              <Link to={{pathname:`/show-Post/${this.props.match.params.id}`,
+                         state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
                   Back
               </Link>
             </div>
