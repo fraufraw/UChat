@@ -1,6 +1,7 @@
 import React from "react";
 import loginImg from "../../login.svg";
-import { withRouter } from 'react-router-dom';
+import { Router,Route,hashHistory} from 'react-router';
+import { withRouter,BrowserRouter} from 'react-router-dom';
 import axios from "axios";
 
 export class Login extends React.Component{
@@ -26,7 +27,7 @@ export class Login extends React.Component{
             password: this.state.password
         }
 
-        if (user.username == ''){
+        if (user.username === ''){
             this.setState({loginStatus: "Username and password are required. Please try again."});
             return;
         }
@@ -35,21 +36,30 @@ export class Login extends React.Component{
             .get('http://localhost:8082/api/user/'+ user.username)
             .then(res=>{
                 console.log(res);
-                if (user.password == ''){
+                if (user.password === ''){
                     this.setState({loginStatus: "Username and password are required. Please try again."});
                 }
-                else if (res.data.length <= 0 || res.data[0].password != user.password){
+                else if (res.data.length <= 0 || res.data[0].password !== user.password){
                     this.setState({
                         loginStatus: 'Username or password is incorrect. Please try again.',
                     });
                 }
                 else{
                     this.setState({
-                        username: '',
-                        password: '',
+                        username: this.state.username,
+                        password: this.state.password,
                         loginStatus: '',
                     });
-                    this.props.history.push('/show-list');
+                    //this.props.history.push('/show-list');
+                    this.props.history.push 
+                    ({
+                        pathname:'/show-list',
+                        state:{
+                            UserName: this.state.username,
+                            PassWord: this.state.password,
+                            userId: res.data[0]._id
+                        }
+                    });
                 };
             })
             .catch(err => {
