@@ -1,6 +1,6 @@
 import React from "react";
 import loginImg from "../../login.svg";
-import { Router,Route,hashHistory} from 'react-router';
+//import { Router,Route,hashHistory} from 'react-router';
 import { withRouter,BrowserRouter} from 'react-router-dom';
 import axios from "axios";
 
@@ -50,7 +50,8 @@ export class Login extends React.Component{
                         password: this.state.password,
                         loginStatus: '',
                     });
-                    //this.props.history.push('/show-list');
+                    //this.props.history.push('/show-list'); 
+                    //we use state to pass the parameter here to showlist page
                     this.props.history.push 
                     ({
                         pathname:'/show-list',

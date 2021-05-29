@@ -153,23 +153,19 @@ class showPostDetails extends Component {
   render() {
     const post = this.state.post;
     const comments = this.state.comments;
-    //console.log("PrintPost: " + comments);
-    //console.log("Print id: " + this.props.match.params.id);
     let commentList;
     if(!comments) {
         commentList = "there is no post record!";
       } else {
         commentList = comments.map((comment,k) =>
         <tr key={k}>
-            <th scope="row">{comment.author}{":---"}  {comment.text} </th>
-            <td>Date:{comment.updated_date} PostID:{comment.Postid} commentID:{comment._id}</td>
+            <th scope="row">{comment.author}{":    "}  {comment.text} </th>
+            <td>Date:{comment.updated_date} {/**PostID:{comment.Postid} commentID:{comment._id} */}</td>
             <td>Liked: {comment.Message_liked_number}</td>
             <button type="button" className="btn btn-outline-warning float-left" onClick={this.clickMessageAddLike.bind(this,comment.text,comment.author,comment.updated_date,comment.Message_liked_number,comment._id,post._id)}>Like</button>
         </tr>
         );
       }
-
-    
     let PostItem = <div>
       <table className="navbar navbar-dark bg-dark mb-3">
         <tbody>
@@ -178,13 +174,6 @@ class showPostDetails extends Component {
             <td>Title:</td>
             <td>{ post.title }</td>
           </tr>
-          {/* 
-          <tr>
-            <th scope="row">2</th>
-            <td>Author</td>
-            <td>{ post.author }</td>
-          </tr>
-          */}
           <tr>
             <th scope="row"></th>
             <td>Description:</td>
@@ -264,10 +253,6 @@ class showPostDetails extends Component {
             </div>
 
           </div>
-            {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Book</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Book</button> */}
-
         </div>
       </div>
     );

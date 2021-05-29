@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link,BrowserRouter } from 'react-router-dom';
-import { Router, Route,hashHistory} from 'react-router';
+//import { Router, Route,hashHistory} from 'react-router';
 import '../App.css';
 import axios from 'axios';
 
-
+//add a props here to get the parameter from other page 
 class CreatePost extends Component {
   constructor(props) {
     super(props);
@@ -95,18 +95,6 @@ class CreatePost extends Component {
                   />
                 </div>
                 <br />
-                {/** 
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Author'
-                    name='author'
-                    className='form-control'
-                    value={this.state.author}
-                    onChange={this.onChange}
-                  />
-                </div>
-                */}
                 <div className='form-group'>
                   <input
                     type='text'
@@ -117,31 +105,7 @@ class CreatePost extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-                {/*
-                <div className='form-group'>
-                  <input
-                    type='date'
-                    placeholder='published_date'
-                    name='published_date'
-                    className='form-control'
-                    value={this.state.published_date}
-                    onChange={this.onChange}
-                  />
-                </div>
-                */}
                 <div className='form-group'>publisher {this.state.publisher}</div>
-                {/**
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Publisher of this Post'
-                    name='publisher'
-                    className='form-control'
-                    value={this.state.publisher}
-                    onChange={this.onChange}
-                  />
-                </div>
-                 */}
                 <input
                     type="submit"
                     className="btn btn-outline-warning btn-block mt-4"
