@@ -10,12 +10,12 @@ class ShowPostList extends Component {
     super(props);
     this.state = {
       posts: [],
-      UserName: this.props.history.location.state.UserName,
+      UserName: this.props.history.location.state.UserName,//by this way we get the value from other page 
       PassWord: this.props.history.location.state.PassWord,
       userId: this.props.history.location.state.userId
     };
   }
-
+  //do this all the time 
   componentDidMount() {
     axios
       .get('http://localhost:8082/api/posts')
@@ -41,9 +41,9 @@ class ShowPostList extends Component {
     } else {
       postList = posts.map((post, k) =>
         <PostCard post={post} UserName={this.state.UserName} PassWord={this.state.PassWord} userId={this.state.userId} key={k} />
-      );
+      );//this is a way to past parameter to another function
     }
-
+    //we don't need to pass user's info when they logout
     return (
       <div className="ShowPostList">
         <div className="container">
@@ -58,6 +58,7 @@ class ShowPostList extends Component {
               <h2 className="display-4 text-center">Posts List</h2>
             </div>
             <div className="col-md-11">
+              {/** and here is the way we pass parameter by link */}
               <h4>User: {this.state.UserName} ID: {this.state.userId}</h4>
               <Link to={{pathname: "/create-Post",state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,

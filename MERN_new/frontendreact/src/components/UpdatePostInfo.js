@@ -50,16 +50,6 @@ class UpdatePostInfo extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    /*
-    const data = {
-      title: this.state.title,
-      author: this.state.author,
-      description: this.state.description,
-      published_date: this.state.published_date,
-      publisher: this.state.publisher
-    };
-    */
-
     const dateObject = new Date(Date.now());
     const date = dateObject.toLocaleString("en-US", {timeZoneName: "short"});
     //const date = Date.now();
@@ -67,7 +57,6 @@ class UpdatePostInfo extends Component {
     const message = {
         text: this.state.message,
         author: this.state.UserName,
-        //updated_date: this.state.published_date,
         updated_date: date,
         Postid: this.props.match.params.id
     }
@@ -136,20 +125,6 @@ class UpdatePostInfo extends Component {
           <div className="col-md-8 m-auto">
           
           <form noValidate onSubmit={this.onSubmit}>
-            {/*
-            <div className='form-group'>
-              <label htmlFor="title">Title</label>
-              <input
-                type='text'
-                placeholder='Title of the Post'
-                name='title'
-                className='form-control'
-                value={this.state.title}
-                onChange={this.onChange}
-              />
-            </div>
-            <br />
-            */}
             <div className='form-group'>
             <label htmlFor="author">Message</label>
               <input
@@ -161,59 +136,6 @@ class UpdatePostInfo extends Component {
                 onChange={this.onChange}
               />
             </div>
-            
-            {/*
-            <div className='form-group'>
-            <label htmlFor="author">Author</label>
-              <input
-                type='text'
-                placeholder='Author'
-                name='author'
-                className='form-control'
-                value={this.state.author}
-                onChange={this.onChange}
-              />
-            </div>
-            
-            <div className='form-group'>
-            <label htmlFor="description">Description</label>
-              <input
-                type='text'
-                placeholder='Describe this post'
-                name='description'
-                className='form-control'
-                value={this.state.description}
-                onChange={this.onChange}
-              />
-            </div>
-            */}
-            {/*
-            <div className='form-group'>
-            <label htmlFor="published_date">Published Date</label>
-              <input
-                type='date'
-                placeholder='published_date'
-                name='published_date'
-                className='form-control'
-                value={this.state.published_date}
-                onChange={this.onChange}
-              />
-            </div>
-            */}
-            {/*
-            <div className='form-group'>
-            <label htmlFor="publisher">Publisher</label>
-              <input
-                type='text'
-                placeholder='Publisher of this Post'
-                name='publisher'
-                className='form-control'
-                value={this.state.publisher}
-                onChange={this.onChange}
-              />
-            </div>
-             */}
-            
             <button type="submit" className="btn btn-outline-info btn-lg btn-block">Update Message</button>
             </form>
           </div>
