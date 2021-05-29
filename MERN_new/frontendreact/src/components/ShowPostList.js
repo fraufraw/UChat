@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Router,Route,hashHistory} from 'react-router';
+import { Link,BrowserRouter} from 'react-router-dom';
 import PostCard from './PostCard';
 
 class ShowPostList extends Component {
@@ -9,6 +10,9 @@ class ShowPostList extends Component {
     super(props);
     this.state = {
       posts: [],
+      UserName: this.props.history.location.state.UserName,
+      PassWord: this.props.history.location.state.PassWord,
+      userId: this.props.history.location.state.userId
     };
   }
 
@@ -36,7 +40,7 @@ class ShowPostList extends Component {
       postList = "there is no post record!";
     } else {
       postList = posts.map((post, k) =>
-        <PostCard post={post} key={k} />
+        <PostCard post={post} UserName={this.state.UserName} PassWord={this.state.PassWord} userId={this.state.userId} key={k} />
       );
     }
 
@@ -47,14 +51,17 @@ class ShowPostList extends Component {
           <Link to="/" className="btn btn-outline-warning float-left">
             Logout
           </Link>
-          <h4>{this.state.username}</h4>
+          
           <div className="row">
             <div className="col-md-12">
               <br />
               <h2 className="display-4 text-center">Posts List</h2>
             </div>
             <div className="col-md-11">
-              <Link to="/create-Post" className="btn btn-outline-warning float-right">
+              <h4>User: {this.state.UserName} ID: {this.state.userId}</h4>
+              <Link to={{pathname: "/create-Post",state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
                 + Add New Post
               </Link>
               <br />
