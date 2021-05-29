@@ -12,8 +12,8 @@ const MessageSchema = new mongoose.Schema({
     default: 'Guest'
   },
   updated_date: {
-    type: Date,
-    default: Date.now
+    type: String,
+    //default: Date.now
   },
   Postid:{
     type: String,

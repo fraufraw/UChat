@@ -71,7 +71,7 @@ class showPostDetails extends Component {
     axios
       .delete('http://localhost:8082/api/message/'+id)
       .then(res => {
-        this.props.history.push("/");
+        this.props.history.push("/show-list");
       })
       .catch(err => {
         console.log("Error form ShowPostDetails_deleteClick");
@@ -204,8 +204,8 @@ class showPostDetails extends Component {
           <div className="row">
             <div className="col-md-10 m-auto">
               <br /> <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Post List
+              <Link to="/show-list" className="btn btn-outline-warning float-left">
+                  Back
               </Link>
             </div>
             <br />

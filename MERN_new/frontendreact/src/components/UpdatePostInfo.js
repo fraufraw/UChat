@@ -56,12 +56,19 @@ class UpdatePostInfo extends Component {
       publisher: this.state.publisher
     };
     */
+
+    const dateObject = new Date(Date.now());
+    const date = dateObject.toLocaleString("en-US", {timeZoneName: "short"});
+    //const date = Date.now();
+
     const message = {
         text: this.state.message,
         author: "haven't connected to user",
-        updated_date: this.state.published_date,
+        //updated_date: this.state.published_date,
+        updated_date: date,
         Postid: this.props.match.params.id
     }
+
     /*
     axios
       .put('http://localhost:8082/api/posts/'+this.props.match.params.id, data)
@@ -99,8 +106,8 @@ class UpdatePostInfo extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Post List
+              <Link to={`/show-Post/${this.props.match.params.id}`} className="btn btn-outline-warning float-left">
+                  Back
               </Link>
             </div>
             <div className="col-md-8 m-auto">
@@ -165,6 +172,7 @@ class UpdatePostInfo extends Component {
               />
             </div>
             */}
+            {/*
             <div className='form-group'>
             <label htmlFor="published_date">Published Date</label>
               <input
@@ -176,6 +184,7 @@ class UpdatePostInfo extends Component {
                 onChange={this.onChange}
               />
             </div>
+            */}
             {/*
             <div className='form-group'>
             <label htmlFor="publisher">Publisher</label>

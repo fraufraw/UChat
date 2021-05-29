@@ -16,14 +16,14 @@ const PostSchema = new mongoose.Schema({
     type: String
   },
   published_date: {
-    type: Date
+    type: String
   },
   publisher: {
     type: String
   },
   updated_date: {
-    type: Date,
-    default: Date.now
+    type: String,
+    //default: Date.now
   },
   Liked_number:{
     type: Number,

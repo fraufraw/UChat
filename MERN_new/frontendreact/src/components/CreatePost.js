@@ -23,11 +23,15 @@ class CreatePost extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    const dateObject = new Date(Date.now());
+    const date = dateObject.toLocaleString("en-US", {timeZoneName: "short"});
+    //const date = Date.now();
+
     const data = {
       title: this.state.title,
       author: this.state.author,
       description: this.state.description,
-      published_date: this.state.published_date,
+      published_date: date,
       publisher: this.state.publisher
     };
 
@@ -41,7 +45,7 @@ class CreatePost extends Component {
           published_date:'',
           publisher:''
         })
-        this.props.history.push('/');
+        this.props.history.push('/show-list');
       })
       .catch(err => {
         console.log("Error in CreatePost!");
@@ -55,8 +59,8 @@ class CreatePost extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Post List
+              <Link to="/show-list" className="btn btn-outline-warning float-left">
+                  Back
               </Link>
             </div>
             <div className="col-md-8 m-auto">
@@ -99,7 +103,7 @@ class CreatePost extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-
+                {/*
                 <div className='form-group'>
                   <input
                     type='date'
@@ -110,6 +114,7 @@ class CreatePost extends Component {
                     onChange={this.onChange}
                   />
                 </div>
+                */}
                 <div className='form-group'>
                   <input
                     type='text'

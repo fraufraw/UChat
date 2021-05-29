@@ -6,13 +6,15 @@ import CreatePost from './components/CreatePost';
 import ShowPostList from './components/ShowPostList';
 import ShowPostDetails from './components/ShowPostDetails';
 import UpdatePostInfo from './components/UpdatePostInfo';
+import LoginRegister from './components/LoginRegister';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Route exact path='/' component={ShowPostList} />
+          <Route exact path='/' component={LoginRegister} />
+          <Route path='/show-list' component={ShowPostList} />
           <Route path='/create-Post' component={CreatePost} />
           <Route path='/edit-Post/:id' component={UpdatePostInfo} />
           <Route path='/show-Post/:id' component={ShowPostDetails} />
