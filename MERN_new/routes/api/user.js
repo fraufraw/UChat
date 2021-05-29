@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 // @route GET api/posts   req.params.typeId是传入的参数，下面的:id 同理
 // @description Get all posts
 // @access Public
-router.get('/', (req, res) => {
+router.get('/:username', (req, res) => {
   User.find({username: req.params.username})
     .then(userinfo => res.json(userinfo))
     .catch(err => res.status(404).json({ nopostsfound: 'No user found' }));
@@ -34,14 +34,11 @@ router.get('/', (req, res) => {
 // @route GET api/posts/:id
 // @description Delete post by id
 // @access Public
-
-/*
 router.delete('/:username', (req, res) => {
-    User.findOneAndDelete(req.params.username, req.body)
-      .then(post => res.json({ mgs: 'Post entry deleted successfully' }))
-      .catch(err => res.status(404).json({ error: 'No such a Post' }));
-  });
-*/
+  User.delete({username: req.params.username})
+    .then(post => res.json({ mgs: 'user deleted successfully' }))
+    .catch(err => res.status(404).json({ error: 'No such a user' }));
+});
 
 // @route GET api/posts/:id
 // @description Update post

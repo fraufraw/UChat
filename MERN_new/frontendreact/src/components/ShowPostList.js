@@ -8,7 +8,7 @@ class ShowPostList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
     };
   }
 
@@ -43,6 +43,11 @@ class ShowPostList extends Component {
     return (
       <div className="ShowPostList">
         <div className="container">
+          <br/>
+          <Link to="/" className="btn btn-outline-warning float-left">
+            Logout
+          </Link>
+          <h4>{this.state.username}</h4>
           <div className="row">
             <div className="col-md-12">
               <br />

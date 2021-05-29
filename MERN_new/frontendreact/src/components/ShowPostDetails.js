@@ -205,7 +205,7 @@ class showPostDetails extends Component {
             <div className="col-md-10 m-auto">
               <br /> <br />
               <Link to="/show-list" className="btn btn-outline-warning float-left">
-                  Show Post List
+                  Back
               </Link>
             </div>
             <br />

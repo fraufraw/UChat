@@ -12,7 +12,8 @@ export class Register extends Component{
         this.state = {
             username: '',
             email: '',
-            password: ''
+            password: '',
+            registerStatus: '',
         };
     };
 
@@ -29,21 +30,62 @@ export class Register extends Component{
           password: this.state.password
         };
 
+        if (user.username == ''){
+            this.setState({registerStatus: "Username and password are required. Please try again."});
+            return;
+        }
+
     
         axios
-          .post('http://localhost:8082/api/user', user)
+            .get('http://localhost:8082/api/user/'+ user.username)
+            .then(res=>{
+                console.log(res);
+                if (res.data.length > 0){
+                    this.setState({registerStatus: `Username "${user.username}" has been used. Please try again.`});
+                }
+                else if (user.password == ''){
+                    this.setState({registerStatus: "Username and password are required. Please try again."});
+                }
+                else{
+                    axios
+                        .post('http://localhost:8082/api/user', user)
+                        .then(res => {
+                            this.setState({
+                                username: '',
+                                email: '',
+                                password: '',
+                                registerStatus: ''
+                        });
+                        console.log(res);
+                        this.props.history.push('/');
+                        })
+                        .catch(err => {
+                        console.log("Error in Register!");
+                    });
+                    this.refreshPage();  
+                };
+            })
+            .catch(err => {
+                console.log("Error in Login!");
+                console.log(err);
+        });
+        
+    };
+
+    refreshPage(){ 
+        window.location.reload(); 
+    };
+
+    onDeleteClick() {
+        axios
+          .delete('http://localhost:8082/api/user')
           .then(res => {
-            this.setState({
-              username: '',
-              email: '',
-              password: '',
-            });
+            //this.props.history.push("/");
             console.log(res);
-            this.props.history.push('/show-list');
           })
           .catch(err => {
-            console.log("Error in Register!");
-          })
+            console.log("Error");
+        })
     };
 
     render()    {
@@ -68,7 +110,7 @@ export class Register extends Component{
                                 <input 
                                     type='email'
                                     name='email' 
-                                    placeholder='email'
+                                    placeholder='email (optional)'
                                     value={this.state.email}
                                     onChange={this.onChange}
                                 />
@@ -90,6 +132,8 @@ export class Register extends Component{
                             Register
                         </button>
                     </div>
+                    <br/>
+                    <h4 className="warning">{this.state.registerStatus}</h4>
                 </form>
         </div>
         

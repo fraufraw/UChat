@@ -9,7 +9,7 @@ class LoginRegister extends Component {
     constructor(props){
       super(props);
       this.state={
-        isLogginActive: true
+        isLogginActive: true,
       };
     }
   
@@ -29,6 +29,7 @@ class LoginRegister extends Component {
     }
     this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive }));
     }
+
   
     render() {
       const { isLogginActive } = this.state;
@@ -38,7 +39,7 @@ class LoginRegister extends Component {
           <div className="App">
             <div className="login">
               <div className="container">
-                { isLogginActive && <Login containerRef={(ref) => this.current = ref}/> }
+                { isLogginActive && <Login containerRef={(ref) => this.current = ref}/>}
                 {!isLogginActive && <Register containerRef={(ref) => this.current = ref}/>}
               </div>
               <RightSide 
