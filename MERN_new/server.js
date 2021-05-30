@@ -23,6 +23,7 @@ app.get('/', (req, res) => res.send('Hello world!'));
 app.use('/api/posts', posts);
 app.use('/api/message', message);
 app.use('/api/user', user);
+app.use('/search', express.static('search'));
 
 const port = process.env.PORT || 8082;
 
