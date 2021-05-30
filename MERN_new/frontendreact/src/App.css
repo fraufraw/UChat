@@ -108,4 +108,44 @@
   color: #e90a0a;
   font-size: 1em;
   padding: 10px 0 10px 0;
+}.search-form {
+  position: fixed;
+  z-index: 3;
+  left: 450px;
+  top: 20px;
+  width: auto;
+  height: 75px;
+
+  margin-top: 20px;
+  background-color: black;
+  background-size: cover;
+}
+
+input{
+  height: 40px;
+  width: 500px;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.button {
+  display:inline;
+  border: 3px black;
+  height: 40px;
+  background-color: rgba(0,0,0,0);
+  font-size: 1rem;
+  color:white;
+  font-family: 'RocknRoll One', sans-serif;
+  margin: 10px;
+}
+
+
+
+.button-container {
+  width: auto;
+  display: inline;
 }
