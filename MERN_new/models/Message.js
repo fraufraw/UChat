@@ -22,6 +22,10 @@ const MessageSchema = new mongoose.Schema({
   Message_liked_number:{
     type: Number,
     default: 0
+  },
+  Userid:{
+    type: String,
+    required: true
   }
 });
 

@@ -12,7 +12,7 @@ class UpdatePostInfo extends Component {
       author: '',
       description: '',
       published_date: '',
-      publisher: '',
+      //publisher: '',
       UserName: this.props.history.location.state.UserName,
       PassWord: this.props.history.location.state.PassWord,
       userId: this.props.history.location.state.userId
@@ -58,7 +58,8 @@ class UpdatePostInfo extends Component {
         text: this.state.message,
         author: this.state.UserName,
         updated_date: date,
-        Postid: this.props.match.params.id
+        Postid: this.props.match.params.id,
+        Userid: this.state.userId
     }
 
     /*
@@ -78,7 +79,8 @@ class UpdatePostInfo extends Component {
             text: '',
             author:  this.state.UserName,
             updated_date: '',
-            Postid: this.props.match.params.id  
+            Postid: this.props.match.params.id,  
+            Userid: this.state.userId
         })
         this.props.history.push
         ({
