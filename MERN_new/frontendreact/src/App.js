@@ -7,6 +7,7 @@ import ShowPostList from './components/ShowPostList';
 import ShowPostDetails from './components/ShowPostDetails';
 import UpdatePostInfo from './components/UpdatePostInfo';
 import LoginRegister from './components/LoginRegister';
+import SearchForPost from './components/SearchForPost';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path='/create-Post' component={CreatePost} />
           <Route path='/edit-Post/:id' component={UpdatePostInfo} />
           <Route path='/show-Post/:id' component={ShowPostDetails} />
+          <Route path='/search' component={SearchForPost} />
         </div>
       </Router>
     );
