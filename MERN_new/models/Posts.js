@@ -28,8 +28,11 @@ const PostSchema = new mongoose.Schema({
   Liked_number:{
     type: Number,
     default: 0
+  },
+  posterId:{
+    type: String,
+    required: true
   }
-
 });
 
 module.exports = Post = mongoose.model('post', PostSchema);

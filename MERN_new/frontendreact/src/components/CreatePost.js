@@ -36,7 +36,8 @@ class CreatePost extends Component {
       author: this.state.author,
       description: this.state.description,
       published_date: date,
-      publisher: this.state.publisher
+      publisher: this.state.publisher,
+      posterId: this.state.userId
     };
 
     axios
@@ -47,7 +48,8 @@ class CreatePost extends Component {
           author: this.props.history.location.state.UserName,
           description:'',
           published_date:'',
-          publisher:''
+          publisher:'',
+          posterId: this.state.userId
         })
         this.props.history.push({
           pathname:'/show-list',
