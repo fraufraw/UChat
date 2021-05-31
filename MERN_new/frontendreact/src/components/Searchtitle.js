@@ -5,7 +5,7 @@ import { Router,Route,hashHistory} from 'react-router';
 import { Link,BrowserRouter} from 'react-router-dom';
 import PostCard from './PostCard';
 
-class Search extends Component {
+class Searchtitle extends Component {
     constructor() {
       super();
       this.state = {
@@ -28,7 +28,7 @@ class Search extends Component {
          };
 
     axios
-      .post('http://localhost:8082/api/search', data)
+      .post('http://localhost:8082/api/searchtitle', data)
       .then(res => {
         this.setState({
           keyword: '',
@@ -37,7 +37,7 @@ class Search extends Component {
  //       this.props.history.push('/');
       })
       .catch(err => {
-        console.log("Error in Search!");
+        console.log("Error in Searchtitle!");
       })
   };
 
@@ -58,7 +58,7 @@ class Search extends Component {
 
 
     return (
-      <div className="Search">
+      <div className="Searchtitle">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
@@ -103,4 +103,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default Searchtitle;

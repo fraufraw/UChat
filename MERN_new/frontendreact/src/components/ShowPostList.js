@@ -63,7 +63,7 @@ class ShowPostList extends Component {
               <h2 className="display-4 text-center">Posts List</h2>
             </div>
             <div className="col-md-11">
-            <Link to="/search" className="btn btn-outline-warning float-right">
+            <Link to="/searchtitle" className="btn btn-outline-warning float-right">
                 SEARCH
               </Link>
               {/** and here is the way we pass parameter by link */}
