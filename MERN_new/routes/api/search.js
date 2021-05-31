@@ -1,4 +1,4 @@
-// routes/api/posts.js
+/// routes/api/posts.js
 
 const express = require('express');
 const router = express.Router();
@@ -14,8 +14,8 @@ router.get('/test', (req, res) => res.send('post route testing!'));
 // @route GET api/posts
 // @description Get all posts
 // @access Public
-router.get('/', (req, res) => {
-  Post.find()
+router.post('/', (req, res) => {
+  Post.find({title: req.body.title})//"delete test"
     .then(posts => res.json(posts))
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
@@ -34,12 +34,13 @@ router.get('/:getid', (req, res) => {
 // @route GET api/posts
 // @description add/save post
 // @access Public
+/*
 router.post('/', (req, res) => {
   Post.create(req.body)
     .then(post => res.json({ msg: 'Post added successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to add this post' }));
 });
-
+*/
 // @route GET api/posts/:id
 // @description Update post
 // @access Public
@@ -61,3 +62,13 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
+/*
+router.get('/', (req, res) => {
+    Post.find()//{title: {$exists: req.body}}
+      .then(posts => res.json(posts))
+      .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
+  });
+
+ 
+
+  */

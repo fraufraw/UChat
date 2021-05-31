@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+import { Router,Route,hashHistory} from 'react-router';
+import { Link,BrowserRouter} from 'react-router-dom';
+import PostCard from './PostCard';
 
 class Search extends Component {
     constructor() {
@@ -19,12 +21,14 @@ class Search extends Component {
     onSubmit = e => {
         e.preventDefault();
     
+
+        
         const data = {
-          keyword: this.state.keyword,
-    };
+          title: this.state.keyword,
+         };
 
     axios
-      .get('http://localhost:8082/api/posts', data)
+      .post('http://localhost:8082/api/search', data)
       .then(res => {
         this.setState({
           keyword: '',
@@ -39,6 +43,20 @@ class Search extends Component {
 
 
   render() {
+
+    const posts = this.state.posts;
+    console.log("PrintPost: " + posts);
+    let postList;
+
+    if(!posts) {
+      postList = "there is no post record!";
+    } else {
+      postList = posts.map((post, k) =>
+        <PostCard post={post} UserName={this.state.UserName} PassWord={this.state.PassWord} userId={this.state.userId} key={k} />
+      );//this is a way to past parameter to another function
+    }
+
+
     return (
       <div className="Search">
         <div className="container">
@@ -46,17 +64,17 @@ class Search extends Component {
             <div className="col-md-8 m-auto">
               <br />
               <Link to="/" className="btn btn-outline-warning float-left">
-                  Show BooK List
+                  Show Post List
               </Link>
             </div>
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Search Book</h1>
+              <h1 className="display-4 text-center">Search Post</h1>
 
               <form noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='keyword of the Book'
+                    placeholder='keyword of the Post'
                     name='keyword'
                     className='form-control'
                     value={this.state.keyword}
@@ -65,13 +83,18 @@ class Search extends Component {
                 </div>
                 <br />
 
-
-
                 <input
                     type="submit"
                     className="btn btn-outline-warning btn-block mt-4"
-                />
+                 />
               </form>
+
+              <div className="list">
+                {postList}
+              </div>
+
+
+
           </div>
           </div>
         </div>
