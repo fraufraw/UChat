@@ -20,6 +20,8 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
 
+
+
 // @route GET api/posts/:id
 // @description Get single post by id
 // @access Public

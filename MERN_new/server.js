@@ -5,6 +5,7 @@ var cors = require('cors');
 const posts= require('./routes/api/posts');
 const message=require('./routes/api/message');
 const user=require('./routes/api/user');
+const searchtitle=require('./routes/api/searchtitle');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => res.send('Hello world!'));
 app.use('/api/posts', posts);
 app.use('/api/message', message);
 app.use('/api/user', user);
+app.use('/api/searchtitle', searchtitle);
 
 const port = process.env.PORT || 8082;
 

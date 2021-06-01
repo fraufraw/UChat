@@ -13,6 +13,11 @@ class ShowPostList extends Component {
       UserName: this.props.history.location.state.UserName,//by this way we get the value from other page 
       PassWord: this.props.history.location.state.PassWord,
       userId: this.props.history.location.state.userId
+
+
+
+
+
     };
   }
   //do this all the time 
@@ -58,6 +63,11 @@ class ShowPostList extends Component {
               <h2 className="display-4 text-center">Posts List</h2>
             </div>
             <div className="col-md-11">
+            <Link to={{pathname: "/searchtitle",state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
+                SEARCH TITLE
+              </Link>
               {/** and here is the way we pass parameter by link */}
               <h4>User: {this.state.UserName} ID: {this.state.userId}</h4>
               <Link to={{pathname: "/create-Post",state:{UserName: this.state.UserName,
