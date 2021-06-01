@@ -7,6 +7,8 @@ const message=require('./routes/api/message');
 const user=require('./routes/api/user');
 const searchtitle=require('./routes/api/searchtitle');
 const myposts=require('./routes/api/myposts');
+const searchcomment=require('./routes/api/searchcomment');
+const searchdescription=require('./routes/api/searchbydescription');
 
 const app = express();
 
@@ -27,6 +29,8 @@ app.use('/api/message', message);
 app.use('/api/user', user);
 app.use('/api/searchtitle', searchtitle);
 app.use('/api/myposts', myposts);
+app.use('/api/searchcomment', searchcomment);
+app.use('/api/searchbydescription', searchdescription);
 
 const port = process.env.PORT || 8082;
 
