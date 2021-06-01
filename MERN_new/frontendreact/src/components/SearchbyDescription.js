@@ -67,7 +67,8 @@ class Searchdescription extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
+              <Link to={{pathname:"/show-list", 
+              state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
                             userId: this.state.userId}}} className="btn btn-outline-warning float-left">
                   Back

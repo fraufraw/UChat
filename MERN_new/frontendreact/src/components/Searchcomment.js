@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+import { Router,Route,hashHistory} from 'react-router';
+import { Link,BrowserRouter} from 'react-router-dom';
 import PostCard from './PostCard';
 
 class Searchcomment extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             posts: [],//contains posts
             messages: [],//contains comments
-            keyword: ''
+            keyword: '',
+                    //let the search function remember user info, so user will be allowed to visit post list
+        UserName: this.props.history.location.state.UserName,
+        PassWord: this.props.history.location.state.PassWord,
+        userId: this.props.history.location.state.userId
         };
     }
 
@@ -67,9 +72,12 @@ class Searchcomment extends Component {
             <div className="row">
               <div className="col-md-8 m-auto">
                 <br />
-                <Link to="/" className="btn btn-outline-warning float-left">
-                    Back
-                </Link>
+                <Link to={{pathname:"/show-list", 
+              state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
+                  Back
+              </Link>
               </div>
               <div className="col-md-8 m-auto">
                 <h1 className="display-4 text-center">Search Comment</h1>
