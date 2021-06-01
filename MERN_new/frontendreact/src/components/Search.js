@@ -6,11 +6,17 @@ import { Link,BrowserRouter} from 'react-router-dom';
 import PostCard from './PostCard';
 
 class Search extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         posts: [],
         keyword: '',
+
+                
+        //let the search function remember user info, so user will be allowed to visit post list
+        UserName: this.props.history.location.state.UserName,
+        PassWord: this.props.history.location.state.PassWord,
+        userId: this.props.history.location.state.userId
       };
     }
 
@@ -52,8 +58,10 @@ class Search extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Post List
+              <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
+                  Back
               </Link>
   
             </div>
