@@ -6,11 +6,16 @@ import { Link,BrowserRouter} from 'react-router-dom';
 import PostCard from './PostCard';
 
 class Searchtitle extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         posts: [],
         keyword: '',
+
+        UserName: this.props.history.location.state.UserName,//by this way we get the value from other page 
+        PassWord: this.props.history.location.state.PassWord,
+        userId: this.props.history.location.state.userId
+
       };
     }
 
@@ -63,8 +68,10 @@ class Searchtitle extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Post List
+              <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
+                  Back
               </Link>
             </div>
             <div className="col-md-8 m-auto">
