@@ -19,6 +19,11 @@ class showPostDetails extends Component {
       published_date: '',
       publisher: '',
       Liked_number: 0,
+      UserName: this.props.history.location.state.UserName,
+      PassWord: this.props.history.location.state.PassWord,
+      userId: this.props.history.location.state.userId,
+      UserState: '',
+      posterId:''
     };
   }
 
@@ -32,7 +37,8 @@ class showPostDetails extends Component {
           description: res.data.description,
           published_date: res.data.published_date,
           publisher: res.data.publisher,
-          Liked_number: res.data.Liked_number
+          Liked_number: res.data.Liked_number,
+          posterId:res.data.posterId
         })
       })
       .catch(err => {
@@ -59,6 +65,8 @@ class showPostDetails extends Component {
   }
   */
   onDeleteClick (id) {
+    if(this.state.userId === this.state.post.posterId)
+    {
     axios
       .delete('http://localhost:8082/api/posts/'+id)
       .then(res => {
@@ -71,25 +79,66 @@ class showPostDetails extends Component {
     axios
       .delete('http://localhost:8082/api/message/'+id)
       .then(res => {
-        this.props.history.push("/show-list");
+        this.props.history.push
+        ({
+          pathname:"/show-list",
+          state:{
+              UserName: this.state.UserName,
+              PassWord: this.state.PassWord,
+              userId: this.state.userId
+          }
+        });
+        //("/show-list");
       })
       .catch(err => {
         console.log("Error form ShowPostDetails_deleteClick");
       })
+    
+    }else{
+      this.setState({
+        UserState:'Sorry, you are not the publisher of this post.'
+      })
+    };
 
   };
 
-  onDeleteClickMessage (id) {
+  onDeleteClickAllMessage (id) {
+    if(this.state.userId === this.state.post.posterId){
     axios
       .delete('http://localhost:8082/api/message/'+id)
       .then(res => {
-        this.props.history.push('/show-Post/'+id);
+        //this.props.history.push('/show-Post/'+id);
       })
       .catch(err => {
         console.log("Error form ShowPostDetails_deleteClick");
       })
     
     refreshPage();
+    }else{
+      this.setState({
+        UserState:'Sorry, you are not the publisher of this post.'
+      })
+    };
+  };
+
+  onDeleteClickThisMessage (id,messageid, messageuser) {
+    if(this.state.userId === messageuser){
+    axios
+      .delete('http://localhost:8082/api/message/'+id+'/'+messageid)
+      .then(res => {
+        //this.props.history.push('/show-Post/'+id);
+      })
+      .catch(err => {
+        console.log("Error form ShowPostDetails_deleteClick");
+      })
+    
+    refreshPage();
+    
+    }else{
+      this.setState({
+        UserState:'Sorry, you are not the author of this message.'
+      })
+    };
   };
 
   //this one is to add like to Post
@@ -106,7 +155,7 @@ class showPostDetails extends Component {
     axios
       .put('http://localhost:8082/api/posts/'+ id, data)
       .then(res => {
-        this.props.history.push('/show-Post/'+ id);
+        //this.props.history.push('/show-Post/'+ id);
       })
       .catch(err => {
         console.log("Error in UpdatePostInfo!");
@@ -127,7 +176,7 @@ class showPostDetails extends Component {
     axios
       .put('http://localhost:8082/api/message/' + Messid, message)
       .then(res => {
-        this.props.history.push('/show-Post/'+id);
+        //this.props.history.push('/show-Post/'+id);
       })
       .catch(err => {
         console.log("Error in UpdateMessageInfo!");
@@ -141,23 +190,20 @@ class showPostDetails extends Component {
   render() {
     const post = this.state.post;
     const comments = this.state.comments;
-    //console.log("PrintPost: " + comments);
-    //console.log("Print id: " + this.props.match.params.id);
     let commentList;
     if(!comments) {
         commentList = "there is no post record!";
       } else {
         commentList = comments.map((comment,k) =>
         <tr key={k}>
-            <th scope="row">{comment.author}{":---"}  {comment.text} </th>
-            <td>Date:{comment.updated_date} PostID:{comment.Postid} commentID:{comment._id}</td>
+            <th scope="row">{comment.author}{":    "}  {comment.text} </th>
+            <td>Date:{comment.updated_date} {/**PostID:{comment.Postid} commentID:{comment._id} */}</td>
+            <button type="button" className="btn btn-outline-warning float-left" onClick={this.onDeleteClickThisMessage.bind(this,post._id,comment._id,comment.Userid)}>Delete</button>
             <td>Liked: {comment.Message_liked_number}</td>
             <button type="button" className="btn btn-outline-warning float-left" onClick={this.clickMessageAddLike.bind(this,comment.text,comment.author,comment.updated_date,comment.Message_liked_number,comment._id,post._id)}>Like</button>
         </tr>
         );
       }
-
-    
     let PostItem = <div>
       <table className="navbar navbar-dark bg-dark mb-3">
         <tbody>
@@ -166,13 +212,6 @@ class showPostDetails extends Component {
             <td>Title:</td>
             <td>{ post.title }</td>
           </tr>
-          {/* 
-          <tr>
-            <th scope="row">2</th>
-            <td>Author</td>
-            <td>{ post.author }</td>
-          </tr>
-          */}
           <tr>
             <th scope="row"></th>
             <td>Description:</td>
@@ -204,7 +243,9 @@ class showPostDetails extends Component {
           <div className="row">
             <div className="col-md-10 m-auto">
               <br /> <br />
-              <Link to="/show-list" className="btn btn-outline-warning float-left">
+              <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
                   Back
               </Link>
             </div>
@@ -228,29 +269,26 @@ class showPostDetails extends Component {
           </table>
           </div>
           
-          
-
           <div className="row">
             <div className="col-md-6">
-              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClickMessage.bind(this,post._id)}>Clear Message</button><br />
+              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClickAllMessage.bind(this,post._id)}>Clear Message</button><br />
+              <h3>{this.state.UserState}</h3>
             </div>
 
             <div className="col-md-6">
               <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,post._id)}>Delete Post</button><br />
             </div>
-
             <div className="col-md-6">
-              <Link to={`/edit-Post/${post._id}`} className="btn btn-outline-info btn-lg btn-block">
+              <Link to={{pathname:`/edit-Post/${post._id}`, 
+                            state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-info btn-lg btn-block">
                     Add message
               </Link>
               <br />
             </div>
 
           </div>
-            {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Book</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Book</button> */}
-
         </div>
       </div>
     );

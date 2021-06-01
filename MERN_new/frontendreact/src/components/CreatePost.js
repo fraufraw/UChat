@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,BrowserRouter } from 'react-router-dom';
+//import { Router, Route,hashHistory} from 'react-router';
 import '../App.css';
 import axios from 'axios';
 
-
+//add a props here to get the parameter from other page 
 class CreatePost extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       title: '',
-      author:'',
+      author:this.props.history.location.state.UserName,
       description:'',
       published_date:'',
-      publisher:''
+      publisher:this.props.history.location.state.UserName,
+      UserName: this.props.history.location.state.UserName,
+      PassWord: this.props.history.location.state.PassWord,
+      userId: this.props.history.location.state.userId
     };
   }
 
@@ -32,7 +36,8 @@ class CreatePost extends Component {
       author: this.state.author,
       description: this.state.description,
       published_date: date,
-      publisher: this.state.publisher
+      publisher: this.state.publisher,
+      posterId: this.state.userId
     };
 
     axios
@@ -40,12 +45,21 @@ class CreatePost extends Component {
       .then(res => {
         this.setState({
           title: '',
-          author:'',
+          author: this.props.history.location.state.UserName,
           description:'',
           published_date:'',
-          publisher:''
+          publisher:'',
+          posterId: this.state.userId
         })
-        this.props.history.push('/show-list');
+        this.props.history.push({
+          pathname:'/show-list',
+          state:{
+              UserName: this.state.UserName,
+              PassWord: this.state.PassWord,
+              userId: this.state.userId
+          }
+        });
+        //('/show-list');
       })
       .catch(err => {
         console.log("Error in CreatePost!");
@@ -59,7 +73,9 @@ class CreatePost extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to="/show-list" className="btn btn-outline-warning float-left">
+              <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
                   Back
               </Link>
             </div>
@@ -81,18 +97,6 @@ class CreatePost extends Component {
                   />
                 </div>
                 <br />
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Author'
-                    name='author'
-                    className='form-control'
-                    value={this.state.author}
-                    onChange={this.onChange}
-                  />
-                </div>
-
                 <div className='form-group'>
                   <input
                     type='text'
@@ -103,29 +107,7 @@ class CreatePost extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-                {/*
-                <div className='form-group'>
-                  <input
-                    type='date'
-                    placeholder='published_date'
-                    name='published_date'
-                    className='form-control'
-                    value={this.state.published_date}
-                    onChange={this.onChange}
-                  />
-                </div>
-                */}
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Publisher of this Post'
-                    name='publisher'
-                    className='form-control'
-                    value={this.state.publisher}
-                    onChange={this.onChange}
-                  />
-                </div>
-
+                <div className='form-group'>publisher {this.state.publisher}</div>
                 <input
                     type="submit"
                     className="btn btn-outline-warning btn-block mt-4"

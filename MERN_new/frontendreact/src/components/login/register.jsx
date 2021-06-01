@@ -30,7 +30,7 @@ export class Register extends Component{
           password: this.state.password
         };
 
-        if (user.username == ''){
+        if (user.username === ''){
             this.setState({registerStatus: "Username and password are required. Please try again."});
             return;
         }
@@ -43,7 +43,7 @@ export class Register extends Component{
                 if (res.data.length > 0){
                     this.setState({registerStatus: `Username "${user.username}" has been used. Please try again.`});
                 }
-                else if (user.password == ''){
+                else if (user.password === ''){
                     this.setState({registerStatus: "Username and password are required. Please try again."});
                 }
                 else{
