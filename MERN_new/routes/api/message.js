@@ -6,9 +6,7 @@ const router = express.Router();
 // Load post model
 const Message = require('../../models/Message');
 
-// @route GET api/posts/test
-// @description tests posts route
-// @access Public
+//test
 router.get('/test', (req, res) => res.send('message route testing!'));
 
 //  api/posts
@@ -16,7 +14,7 @@ router.get('/test', (req, res) => res.send('message route testing!'));
 router.get('/', (req, res) => {
     Message.find()
       .then(messages => res.json(messages))
-      .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
+      .catch(err => res.status(404).json({ nopostsfound: 'No messages found' }));
   });
 
 // api/posts   req.params.typeId是传入的参数，下面的:id 同理

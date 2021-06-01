@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import { Router,Route,hashHistory} from 'react-router';
+//import { Router,Route,hashHistory} from 'react-router';
 import { Link,BrowserRouter} from 'react-router-dom';
 import PostCard from './PostCard';
 
@@ -13,11 +13,6 @@ class ShowPostList extends Component {
       UserName: this.props.history.location.state.UserName,//by this way we get the value from other page 
       PassWord: this.props.history.location.state.PassWord,
       userId: this.props.history.location.state.userId
-
-
-
-
-
     };
   }
   //do this all the time 
@@ -42,7 +37,7 @@ class ShowPostList extends Component {
     let postList;
 
     if(!posts) {
-      postList = "there is no post record!";
+      postList = "No post here";
     } else {
       postList = posts.map((post, k) =>
         <PostCard post={post} UserName={this.state.UserName} PassWord={this.state.PassWord} userId={this.state.userId} key={k} />

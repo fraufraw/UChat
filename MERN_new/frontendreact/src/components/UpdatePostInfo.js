@@ -12,7 +12,6 @@ class UpdatePostInfo extends Component {
       author: '',
       description: '',
       published_date: '',
-      //publisher: '',
       UserName: this.props.history.location.state.UserName,
       PassWord: this.props.history.location.state.PassWord,
       userId: this.props.history.location.state.userId
@@ -24,13 +23,8 @@ class UpdatePostInfo extends Component {
     axios
       .get('http://localhost:8082/api/posts/'+this.props.match.params.id)
       .then(res => {
-        // this.setState({...this.state, post: res.data})
         this.setState({
           title: res.data.title,
-          //author: res.data.author,
-          //description: res.data.description,
-          //published_date: res.data.published_date,
-          //publisher: res.data.publisher
         })
       })
       .catch(err => {
@@ -61,17 +55,6 @@ class UpdatePostInfo extends Component {
         Postid: this.props.match.params.id,
         Userid: this.state.userId
     }
-
-    /*
-    axios
-      .put('http://localhost:8082/api/posts/'+this.props.match.params.id, data)
-      .then(res => {
-        this.props.history.push('/show-Post/'+this.props.match.params.id);
-      })
-      .catch(err => {
-        console.log("Error in UpdatePostInfo!");
-      })
-    */
     axios
       .post('http://localhost:8082/api/message', message)
       .then(res => {

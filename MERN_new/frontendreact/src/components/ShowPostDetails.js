@@ -58,19 +58,12 @@ class showPostDetails extends Component {
       })
   };
 
-  //this will refresh the page
-  /* 
-  refreshPage(){ 
-    return window.location.reload(); 
-  }
-  */
   onDeleteClick (id) {
     if(this.state.userId === this.state.post.posterId)
     {
     axios
       .delete('http://localhost:8082/api/posts/'+id)
       .then(res => {
-        //this.props.history.push("/");
       })
       .catch(err => {
         console.log("Error form ShowPostDetails_deleteClick");
@@ -227,7 +220,6 @@ class showPostDetails extends Component {
             <td>Published Date:</td>
             <td>{ post.published_date }</td>
           </tr>
-
           <tr>
             <th scope="row"></th>
             <td>Total Liked: {post.Liked_number}</td>
