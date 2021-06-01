@@ -63,8 +63,10 @@ class ShowPostList extends Component {
               <h2 className="display-4 text-center">Posts List</h2>
             </div>
             <div className="col-md-11">
-            <Link to="/searchtitle" className="btn btn-outline-warning float-right">
-                SEARCH
+            <Link to={{pathname: "/searchtitle",state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
+                SEARCH TITLE
               </Link>
               {/** and here is the way we pass parameter by link */}
               <h4>User: {this.state.UserName} ID: {this.state.userId}</h4>
