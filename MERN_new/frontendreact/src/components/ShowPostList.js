@@ -63,10 +63,11 @@ class ShowPostList extends Component {
               <h2 className="display-4 text-center">Posts List</h2>
             </div>
             <div className="col-md-11">
-            <Link to={{pathname: "/searchtitle",state:{UserName: this.state.UserName,
+              
+              <Link to={{pathname: "/search",state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
                             userId: this.state.userId}}} className="btn btn-outline-warning float-right">
-                SEARCH TITLE
+                SEARCH
               </Link>
               <Link to={{pathname: "/myposts",state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
