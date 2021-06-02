@@ -48,10 +48,14 @@ class ShowPostList extends Component {
       <div className="ShowPostList">
         <div className="container">
           <br/>
-          <Link to="/" className="btn btn-outline-warning float-left">
+          <Link to="/" className="btn btn-outline-warning float-right">
             Logout
           </Link>
-          
+          <Link to={{pathname: "/myposts",state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
+                {this.state.UserName}'s Profile
+              </Link>
           <div className="row">
             <div className="col-md-12">
               <br />
@@ -59,18 +63,11 @@ class ShowPostList extends Component {
             </div>
             <div className="col-md-11">
               
-              <Link to={{pathname: "/search",state:{UserName: this.state.UserName,
-                            PassWord: this.state.PassWord,
-                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
-                SEARCH
-              </Link>
-              <Link to={{pathname: "/myposts",state:{UserName: this.state.UserName,
-                            PassWord: this.state.PassWord,
-                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
-                MY USER PROFILE
-              </Link>
+              
+              
               {/** and here is the way we pass parameter by link */}
               
+              <hr />
               <Link to={{pathname: "/create-Post",state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
                             userId: this.state.userId}}} className="btn btn-outline-warning float-right">
@@ -78,13 +75,17 @@ class ShowPostList extends Component {
               </Link>
               
               <br />
-              
               <br />
-              <h4>User: {this.state.UserName}</h4>
-              <h4>ID: {this.state.userId}</h4>
-              <hr />
+            
+              <Link to={{pathname: "/search",state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
+                Search Posts
+              </Link>
             </div>
-
+            <div className="col-md-11">
+            
+              </div>
           </div>
 
           <div className="list">

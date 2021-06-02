@@ -61,10 +61,10 @@ class myposts extends Component {
 
 
     return (
-      <div className="Searchtitle">
+      <div className="Profile">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-11 m-auto">
               <br />
               <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
@@ -72,10 +72,12 @@ class myposts extends Component {
                   Back
               </Link>
             </div>
-            <div className="col-md-8 m-auto">
+            <div className="col-md-11 m-auto">
               <h1 className="display-4 text-center">My User Profile</h1>
-              <h4>User: {this.state.UserName} </h4>
+              <hr/>
               <br/>
+              <br/>
+              <h4>User: {this.state.UserName} </h4>
               <h4>ID: {this.state.userId} </h4>
 
 

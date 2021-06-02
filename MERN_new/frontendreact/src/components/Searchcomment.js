@@ -63,7 +63,7 @@ class Searchcomment extends Component {
         <div className="Searchcomment">
           <div className="container">
             <div className="row">
-              <div className="col-md-8 m-auto">
+              <div className="col-md-11 m-auto">
                 <br />
                 <Link to={{pathname:"/search", 
               state:{UserName: this.state.UserName,
@@ -72,14 +72,16 @@ class Searchcomment extends Component {
                   Back
               </Link>
               </div>
-              <div className="col-md-8 m-auto">
+              <div className="col-md-11 m-auto">
                 <h1 className="display-4 text-center">Search Comment</h1>
-  
+                <hr/>
+                <br/>
+                <br/>
                 <form noValidate onSubmit={this.onSubmit}>
                   <div className='form-group'>
                     <input
                       type='text'
-                      placeholder='comment text'
+                      placeholder='Keyword of the Comment Contents'
                       name='keyword'
                       className='form-control'
                       value={this.state.keyword}
