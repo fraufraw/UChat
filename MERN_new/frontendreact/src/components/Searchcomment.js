@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import { Router,Route,hashHistory} from 'react-router';
 import { Link,BrowserRouter} from 'react-router-dom';
-import PostCard from './PostCard';
 
 class Searchcomment extends Component {
     constructor(props) {
@@ -41,28 +39,23 @@ class Searchcomment extends Component {
         console.log("Error in Search comment!");
       })
     //set data to be an list of messages
-
-
     
   };
 
-    render() {
-//if change the following line to const posts = this.state.posts;  , it should be able to display post infos instead of author
-//after some changes
 
-//The following part is from show post list component.
-        const posts = this.state.messages;
-        console.log("PrintPost: " + posts);
-        let postList;
-    
-        if(!posts) {
-          postList = "there is no post record!";
+
+    render() {
+      const comments = this.state.messages;
+      let commentList;
+      if(!comments) {
+          commentList = "there is no post record!";
         } else {
-          postList = posts.map((post, k) =>
-            <PostCard
-            post={post} 
-            UserName={this.state.UserName} 
-            userId={this.state.userId} key={k} />
+          commentList = comments.map((comment,k) =>
+          <tr key={k}>
+              <th scope="row">{comment.author}{":    "}  {comment.text} </th>
+              <td>Date:{comment.updated_date} {/**PostID:{comment.Postid} commentID:{comment._id} */}</td>
+              <td>Liked: {comment.Message_liked_number}</td>
+            </tr>
           );
         }
 
@@ -101,9 +94,11 @@ class Searchcomment extends Component {
                    />
                 </form>
   
-                <div className="list">
-                  {postList}
-                </div>
+                <div className="message">
+          <table className="table table-hover table-white">
+            {commentList}
+          </table>
+          </div>
   
   
   
