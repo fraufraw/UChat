@@ -1,5 +1,5 @@
 # CS35L-Spring2021 Group10 Project
-Project Name:
+Project Name:<br />
     Uchat
 
 Description:
@@ -8,13 +8,13 @@ Description:
 Features:
 
 
-Group Members:
-    Haoyang Li
-    Weiyi You
-    Peifeng Xie
-    Franklin
-    Jiyuan Xiao
-    William Wei
+Group Members:<br />
+    Haoyang Li<br />
+    Weiyi You<br />
+    Peifeng Xie<br />
+    Franklin<br />
+    Jiyuan Xiao<br />
+    William Wei<br />
 
 Professor:
     Paul R. Eggert
