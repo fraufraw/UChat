@@ -12,6 +12,7 @@ import Searchcomment from './components/Searchcomment';
 import Searchdescription from './components/SearchbyDescription';
 import Search from './components/Search';
 import myposts from './components/myposts';
+import OthersPosts from './components/OthersPosts';
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
           <Route path='/searchdescription' component={Searchdescription} />
           <Route path='/search' component={Search} />
           <Route path='/myposts' component={myposts} />
+          <Route path='/othersposts' component={OthersPosts} />
         </div>
       </Router>
     );
