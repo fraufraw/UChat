@@ -220,7 +220,19 @@ class showPostDetails extends Component {
           <tr>
             <th scope="row"></th>
             <td>Publisher:</td>
-            <td>{ post.publisher }</td>
+            <td><Link to={{pathname:`/othersposts/`, 
+                            state:{UserName: this.state.UserName,
+                            PassWord: this.state.PassWord,
+                            userId: this.state.userId,
+                            publisher: post.publisher}}}>
+                   { post.publisher }
+              </Link></td>
+
+            
+              
+              
+            
+
           </tr>
           <tr>
             <th scope="row"></th>
