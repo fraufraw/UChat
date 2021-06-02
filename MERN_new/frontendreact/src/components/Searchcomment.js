@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
-import { Link,BrowserRouter} from 'react-router-dom';
+import PostCard from './PostCard';
 
 class Searchcomment extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             posts: [],//contains posts
             messages: [],//contains comments
-            keyword: '',
-                    //let the search function remember user info, so user will be allowed to visit post list
-        UserName: this.props.history.location.state.UserName,
-        PassWord: this.props.history.location.state.PassWord,
-        userId: this.props.history.location.state.userId
+            keyword: ''
         };
     }
 
@@ -39,23 +36,28 @@ class Searchcomment extends Component {
         console.log("Error in Search comment!");
       })
     //set data to be an list of messages
+
+
     
   };
 
-
-
     render() {
-      const comments = this.state.messages;
-      let commentList;
-      if(!comments) {
-          commentList = "there is no post record!";
+//if change the following line to const posts = this.state.posts;  , it should be able to display post infos instead of author
+//after some changes
+
+//The following part is from show post list component.
+        const posts = this.state.messages;
+        console.log("PrintPost: " + posts);
+        let postList;
+    
+        if(!posts) {
+          postList = "there is no post record!";
         } else {
-          commentList = comments.map((comment,k) =>
-          <tr key={k}>
-              <th scope="row">{comment.author}{":    "}  {comment.text} </th>
-              <td>Date:{comment.updated_date} {/**PostID:{comment.Postid} commentID:{comment._id} */}</td>
-              <td>Liked: {comment.Message_liked_number}</td>
-            </tr>
+          postList = posts.map((post, k) =>
+            <PostCard
+            post={post} 
+            UserName={this.state.UserName} 
+            userId={this.state.userId} key={k} />
           );
         }
 
@@ -65,12 +67,9 @@ class Searchcomment extends Component {
             <div className="row">
               <div className="col-md-8 m-auto">
                 <br />
-                <Link to={{pathname:"/show-list", 
-              state:{UserName: this.state.UserName,
-                            PassWord: this.state.PassWord,
-                            userId: this.state.userId}}} className="btn btn-outline-warning float-left">
-                  Back
-              </Link>
+                <Link to="/" className="btn btn-outline-warning float-left">
+                    Back
+                </Link>
               </div>
               <div className="col-md-8 m-auto">
                 <h1 className="display-4 text-center">Search Comment</h1>
@@ -94,11 +93,9 @@ class Searchcomment extends Component {
                    />
                 </form>
   
-                <div className="message">
-          <table className="table table-hover table-white">
-            {commentList}
-          </table>
-          </div>
+                <div className="list">
+                  {postList}
+                </div>
   
   
   
