@@ -84,7 +84,7 @@ class CreatePost extends Component {
               <p className="lead text-center">
                   Create new post
               </p>
-
+              <label for=''>Title:</label>
               <form noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input
@@ -97,17 +97,19 @@ class CreatePost extends Component {
                   />
                 </div>
                 <br />
+                <label for=''>Content:</label>
                 <div className='form-group'>
-                  <input
+                  <textarea
                     type='text'
-                    placeholder='Describe this post'
+                    placeholder='Enter your post contents'
                     name='description'
                     className='form-control'
+                    rows="10"
                     value={this.state.description}
                     onChange={this.onChange}
                   />
                 </div>
-                <div className='form-group'>publisher {this.state.publisher}</div>
+                <div className='form-group'>Publisher: {this.state.publisher}</div>
                 <input
                     type="submit"
                     className="btn btn-outline-warning btn-block mt-4"

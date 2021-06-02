@@ -263,7 +263,7 @@ class showPostDetails extends Component {
 
           <div className="message">
           <table className="table table-hover table-dark">
-            <h1>CommentList: </h1> 
+            <h4>Comments: </h4> 
             {commentList}
           </table>
           </div>

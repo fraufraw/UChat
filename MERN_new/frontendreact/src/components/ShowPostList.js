@@ -92,8 +92,6 @@ class ShowPostList extends Component {
           </div>
         </div>
       </div>
-
-
     );
   }
 }

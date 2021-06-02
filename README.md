@@ -2,10 +2,10 @@
 Project Name:<br />
     Uchat
 
-Description:
+Description:<br />
 
 
-Features:
+Features:<br />
 
 
 Group Members:<br />
@@ -14,12 +14,12 @@ Group Members:<br />
     Peifeng Xie<br />
     Franklin<br />
     Jiyuan Xiao<br />
-    William Wei<br />
+    William Wei
 
-Professor:
+Professor:<br />
     Paul R. Eggert
 
-Teacher's Assistant:
+Teacher's Assistant:<br />
     Daniel Meirovitch
 
 # To Run
