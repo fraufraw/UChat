@@ -9,6 +9,7 @@ const searchtitle=require('./routes/api/searchtitle');
 const myposts=require('./routes/api/myposts');
 const searchcomment=require('./routes/api/searchcomment');
 const searchdescription=require('./routes/api/searchbydescription');
+const othersposts=require('./routes/api/othersposts');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/api/searchtitle', searchtitle);
 app.use('/api/myposts', myposts);
 app.use('/api/searchcomment', searchcomment);
 app.use('/api/searchbydescription', searchdescription);
+app.use('/api/othersposts', othersposts);
 
 const port = process.env.PORT || 8082;
 
