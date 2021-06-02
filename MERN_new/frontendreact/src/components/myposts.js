@@ -74,7 +74,9 @@ class myposts extends Component {
             </div>
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">My User Profile</h1>
-              <h4>User: {this.state.UserName} ID: {this.state.userId}</h4>
+              <h4>User: {this.state.UserName} </h4>
+              <br/>
+              <h4>ID: {this.state.userId} </h4>
 
 
               <div className="list">

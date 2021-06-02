@@ -65,7 +65,7 @@ class Searchcomment extends Component {
             <div className="row">
               <div className="col-md-8 m-auto">
                 <br />
-                <Link to={{pathname:"/show-list", 
+                <Link to={{pathname:"/search", 
               state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
                             userId: this.state.userId}}} className="btn btn-outline-warning float-left">
@@ -88,10 +88,9 @@ class Searchcomment extends Component {
                   </div>
                   <br />
   
-                  <input
-                      type="submit"
-                      className="btn btn-outline-warning btn-block mt-4"
-                   />
+                  <button type="submit" className="btn btn-outline-warning btn-block mt-4" >
+                    Search
+                  </button>
                 </form>
   
                 <div className="message">

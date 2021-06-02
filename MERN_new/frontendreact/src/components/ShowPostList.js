@@ -80,7 +80,8 @@ class ShowPostList extends Component {
               <br />
               
               <br />
-              <h4>User: {this.state.UserName} ID: {this.state.userId}</h4>
+              <h4>User: {this.state.UserName}</h4>
+              <h4>ID: {this.state.userId}</h4>
               <hr />
             </div>
 
