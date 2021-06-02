@@ -110,10 +110,12 @@ class CreatePost extends Component {
                   />
                 </div>
                 <div className='form-group'>Publisher: {this.state.publisher}</div>
-                <input
+                <button
                     type="submit"
                     className="btn btn-outline-warning btn-block mt-4"
-                />
+                >
+                Post
+                </button>
               </form>
           </div>
           </div>

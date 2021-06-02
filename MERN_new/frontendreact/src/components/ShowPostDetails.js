@@ -260,7 +260,7 @@ class showPostDetails extends Component {
           <div>
             { PostItem }
           </div>
-
+          <h4 className = 'warning'>{this.state.UserState}</h4>
           <div className="message">
           <table className="table table-hover table-dark">
             <h4>Comments: </h4> 
@@ -270,8 +270,8 @@ class showPostDetails extends Component {
           
           <div className="row">
             <div className="col-md-6">
-              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClickAllMessage.bind(this,post._id)}>Clear Message</button><br />
-              <h3>{this.state.UserState}</h3>
+              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClickAllMessage.bind(this,post._id)}>Clear Comments</button><br />
+              {/*<h4 className = 'warning'>{this.state.UserState}</h4>*/}
             </div>
 
             <div className="col-md-6">
@@ -282,7 +282,7 @@ class showPostDetails extends Component {
                             state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
                             userId: this.state.userId}}} className="btn btn-outline-info btn-lg btn-block">
-                    Add message
+                    Add Comment
               </Link>
               <br />
             </div>
