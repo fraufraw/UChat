@@ -111,10 +111,10 @@ class UpdatePostInfo extends Component {
           
           <form noValidate onSubmit={this.onSubmit}>
             <div className='form-group'>
-            <label className = 'white-text' htmlFor="author">Message:</label>
+            <label className = 'white-text' htmlFor="author">Comment:</label>
               <textarea
                 type='text'
-                placeholder='Message'
+                placeholder='Comment'
                 name='message'
                 className='form-control'
                 rows = '10'

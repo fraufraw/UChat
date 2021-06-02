@@ -134,3 +134,40 @@
   color: #f1e9e9;
 }
 
+.title{
+  font-size: xx-large;
+  font-weight: 300;
+}
+
+.comment{
+  font-size: xx-large;
+  font-weight: 500;
+}
+
+.text-float-right{
+  float: right;
+  font-size: smaller;
+}
+
+#rcorners1 {
+  border-radius: 25px;
+  background: #42474d;
+  padding: 20px;
+}
+
+#rcorners2 {
+  border-radius: 25px;
+  background: #25272b;
+  padding: 20px;
+}
+
+#rcorners3 {
+  border-radius: 25px;
+  background: #45526d;
+  padding: 20px;
+}
+
+.tab {
+  margin-left: 0.5em
+ }
+
