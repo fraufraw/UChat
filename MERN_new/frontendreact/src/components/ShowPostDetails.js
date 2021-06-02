@@ -197,8 +197,9 @@ class showPostDetails extends Component {
           </table>
           <p id = "rcorners3" className = "col-md-11 m-auto">
             <td>{comment.text}</td>
-            <button type="button" className="btn btn-outline-warning float-right tab" onClick={this.onDeleteClickThisMessage.bind(this,post._id,comment._id,comment.Userid)}>Delete</button>
-            <button type="button" className="btn btn-outline-warning float-right" onClick={this.clickMessageAddLike.bind(this,comment.text,comment.author,comment.updated_date,comment.Message_liked_number,comment._id,post._id)}>Liked: {comment.Message_liked_number}</button>
+            <br/>
+            <button type="button" className="btn btn-outline-warning float-right tab " onClick={this.onDeleteClickThisMessage.bind(this,post._id,comment._id,comment.Userid)}>Delete</button>
+            <button type="button" className="btn btn-outline-warning float-right " onClick={this.clickMessageAddLike.bind(this,comment.text,comment.author,comment.updated_date,comment.Message_liked_number,comment._id,post._id)}>Liked: {comment.Message_liked_number}</button>
             <br/>
             <br/>
           </p>
@@ -206,16 +207,6 @@ class showPostDetails extends Component {
       </div>
         );
       }
-
-{/*
-        <tr key={k}>
-            <th scope="row">{comment.author}{":    "}  {comment.text} </th>
-            <td>Date:{comment.updated_date}</td>
-            <button type="button" className="btn btn-outline-warning float-left" onClick={this.onDeleteClickThisMessage.bind(this,post._id,comment._id,comment.Userid)}>Delete</button>
-            <td>Liked: {comment.Message_liked_number}</td>
-            <button type="button" className="btn btn-outline-warning float-left" onClick={this.clickMessageAddLike.bind(this,comment.text,comment.author,comment.updated_date,comment.Message_liked_number,comment._id,post._id)}>Like</button>
-        </tr>
-        */}
 
     let PostItem = <div>
       <p id = "rcorners1" className = 'title'>
@@ -276,18 +267,18 @@ class showPostDetails extends Component {
           </div>
           </div>
           
-          <div className="row">
-            <div className="col-md-6">
+          <div className="row col-md-11 m-auto">
+            <div className="col-md-6 ">
             <br/>
               <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClickAllMessage.bind(this,post._id)}>Clear Comments</button><br />
               {/*<h4 className = 'warning'>{this.state.UserState}</h4>*/}
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-6 ">
             <br/>
               <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,post._id)}>Delete Post</button><br />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 ">
               <Link to={{pathname:`/edit-Post/${post._id}`, 
                             state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
