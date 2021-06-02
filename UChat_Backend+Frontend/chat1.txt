@@ -1,6 +1,0 @@
-hello
-world
-Java
-yes
-no
-new post

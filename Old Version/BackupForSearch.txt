@@ -1,0 +1,36 @@
+Search CSS:
+#lookUpPosts{
+  float:left; 
+  padding-left:20px;
+}
+
+#chooseText{
+  margin-left:10px; 
+  height:22px;
+  width:180px; 
+  margin-top:16px;
+  border:2px solid #b200ff;
+  background-color:#00ffff;
+}
+
+#lookUpButtom{
+  float:left;
+        width:60px;
+        height:22px;
+        color:#4800ff;
+        font-size:20px;
+        margin-top:22px;
+        margin-left:22px;
+        cursor:pointer;
+}
+
+Search js:
+        <div id = "lookUpPosts" >
+          <input type = "text" id = "chooseText" class="form-control"/>
+          
+        </div>
+
+        <div id = "lookUpButton" onclick = "ButtonSelect()">
+          Search
+        </div>
+
