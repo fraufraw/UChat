@@ -10,9 +10,9 @@ Features:
 - Upload Data from Client to Back-end: Create a post 
 - Meaningfully search through server-side data: Search for posts by title or content, and search for comment
 - Unique Feature #1: Register account, login and logout
-- Feature #2: Comment a post, and like a post or comment
-- Feature #3: User profile and other user’s profile 
-- Feature #4: Deletion of data based on publishers and users
+- Unique Feature #2: Comment a post, and like a post or comment
+- Unique Feature #3: User profile and other user’s profile 
+- Unique Feature #4: Deletion of data based on publishers and users
 
 Group Members:
 - Haoyang Li (skyli00)
