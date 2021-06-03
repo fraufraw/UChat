@@ -70,3 +70,7 @@ Then run
 ### `npm start`
 
 to open your web app
+
+Learn how to build a MERN app from "The MERN stack: A complete tutorial" Nur Islam Blog November 15, 2020 
+reference from https://blog.logrocket.com/mern-stack-tutorial/ 
+
