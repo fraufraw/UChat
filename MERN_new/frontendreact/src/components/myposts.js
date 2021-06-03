@@ -72,13 +72,12 @@ class myposts extends Component {
                   Back
               </Link>
             </div>
-            <div className="col-md-11 m-auto">
+            <div className="col-md-12 m-auto">
               <h1 className="display-4 text-center">My User Profile</h1>
               <hr/>
+                <h4 className = 'text-1 lead'>User: {this.state.UserName} </h4>
+                <h4 className = 'text-2 lead'>ID: {this.state.userId} </h4>
               <br/>
-              <br/>
-              <h4>User: {this.state.UserName} </h4>
-              <h4>ID: {this.state.userId} </h4>
 
 
               <div className="list">

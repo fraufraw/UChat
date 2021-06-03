@@ -61,7 +61,7 @@ class ShowPostList extends Component {
               <br />
               <h2 className="display-4 text-center">Posts List</h2>
             </div>
-            <div className="col-md-11">
+            <div className="col-md-12">
               
               
               

@@ -224,13 +224,13 @@ class showPostDetails extends Component {
               </Link></td>
           </tbody>
       </table>
-      <p id = "rcorners2">
+      <p id = "rcorners2" className = 'col-md-11 m-auto'>
             <td>{ post.description }</td>
+            <button type="button" className="btn btn-outline-warning float-right" onClick={this.clickAddLike.bind(this,post._id)}>Liked: {post.Liked_number}</button>
+            <br/>
+            <br/>
       </p>
       <div className = 'text-float-right'>{ post.published_date }
-      <br/>
-      <button type="button" className="btn btn-outline-warning float-right" onClick={this.clickAddLike.bind(this,post._id)}>Liked: {post.Liked_number}</button>
-      <br/>
       </div>
     </div>
 
@@ -238,7 +238,7 @@ class showPostDetails extends Component {
       <div className="ShowPostDetails">
         <div className="container">
           <div className="row">
-            <div className="col-md-10 m-auto">
+            <div className="col-md-12 m-auto">
               <br /> <br />
               <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,

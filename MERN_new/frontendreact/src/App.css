@@ -123,6 +123,12 @@
   padding: 10px 0 10px 0;
 }
 
+.text-2{
+  color: #000000;
+  font-size:xx-large;
+  font-weight: 600;
+}
+
 .warning {
   color: #e90a0a;
   font-size: 1em;
@@ -131,7 +137,7 @@
 
 .white-text
 {
-  color: #f1e9e9;
+  color: #ffffff;
 }
 
 .title{
@@ -150,9 +156,10 @@
 }
 
 #rcorners1 {
-  border-radius: 25px;
+  border-radius: 10px;
   background: #42474d;
   padding: 20px;
+  height: 100px;
 }
 
 #rcorners2 {
@@ -162,12 +169,38 @@
 }
 
 #rcorners3 {
-  border-radius: 25px;
+  border-radius: 30px;
   background: #45526d;
   padding: 20px;
+}
+
+#rcorners4 {
+  border-radius: 10px;
+  background-color:  #19a3e4;
+  padding: 20px; 
+  width: 360px;
+  height: 100px; 
 }
 
 .tab {
   margin-left: 0.5em
  }
 
+ .userinfo{
+   font-size: larger;
+   font-weight: 600;
+   font-style:initial;
+   color: #faf9f9;
+ }
+
+ .text-1{
+  color: #000000;
+  font-size:xx-large;
+  font-weight: 300;
+}
+
+.text-2{
+  color: #000000;
+  font-size:x-large;
+  font-weight: 300;
+}
