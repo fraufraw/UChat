@@ -10,7 +10,7 @@ Features:<br />
 
 Group Members:<br />
     Haoyang Li<br />
-    Weiyi You<br />
+    Weiyi You(yywwwyy for most of commits)<br />
     Peifeng Xie<br />
     Franklin<br />
     Jiyuan Xiao<br />
