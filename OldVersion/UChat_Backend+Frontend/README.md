@@ -16,7 +16,7 @@ node app.js
 ```
 to start the server.
 
-Then Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After running the command above, open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 You can switch pages by clicking the button in the page.
 
