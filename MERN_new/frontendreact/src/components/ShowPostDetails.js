@@ -188,30 +188,32 @@ class showPostDetails extends Component {
         commentList = "there is no post record!";
       } else {
         commentList = comments.map((comment,k) =>
-        <tr key={k}>
-            <th scope="row">{comment.author}{":    "}  {comment.text} </th>
-            <td>Date:{comment.updated_date} {/**PostID:{comment.Postid} commentID:{comment._id} */}</td>
-            <button type="button" className="btn btn-outline-warning float-left" onClick={this.onDeleteClickThisMessage.bind(this,post._id,comment._id,comment.Userid)}>Delete</button>
-            <td>Liked: {comment.Message_liked_number}</td>
-            <button type="button" className="btn btn-outline-warning float-left" onClick={this.clickMessageAddLike.bind(this,comment.text,comment.author,comment.updated_date,comment.Message_liked_number,comment._id,post._id)}>Like</button>
-        </tr>
+        <div key={k} className = "col-md-11">
+          <br/>
+          <table >
+            <tbody>
+              <td>{comment.author}:</td>
+            </tbody>
+          </table>
+          <p id = "rcorners3" className = "col-md-11 m-auto">
+            <td>{comment.text}</td>
+            <br/>
+            <button type="button" className="btn btn-outline-warning float-right tab " onClick={this.onDeleteClickThisMessage.bind(this,post._id,comment._id,comment.Userid)}>Delete</button>
+            <button type="button" className="btn btn-outline-warning float-right " onClick={this.clickMessageAddLike.bind(this,comment.text,comment.author,comment.updated_date,comment.Message_liked_number,comment._id,post._id)}>Liked: {comment.Message_liked_number}</button>
+            <br/>
+            <br/>
+          </p>
+          <div className = 'text-float-right'>{comment.updated_date}</div>
+      </div>
         );
       }
+
     let PostItem = <div>
-      <table className="navbar navbar-dark bg-dark mb-3">
-        <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td>Title:</td>
-            <td>{ post.title }</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Description:</td>
-            <td>{ post.description }</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
+      <p id = "rcorners1" className = 'title'>
+          { post.title }
+      </p>
+      <table>
+          <tbody>
             <td>Publisher:</td>
             <td><Link to={{pathname:`/othersposts/`, 
                             state:{UserName: this.state.UserName,
@@ -220,27 +222,23 @@ class showPostDetails extends Component {
                             publisher: post.publisher}}}>
                    { post.publisher }
               </Link></td>
-            
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Published Date:</td>
-            <td>{ post.published_date }</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Total Liked: {post.Liked_number}</td>
-            <td><button type="button" className="btn btn-outline-warning float-left" onClick={this.clickAddLike.bind(this,post._id)}>Like</button></td>
-          </tr>
-        </tbody>
+          </tbody>
       </table>
+      <p id = "rcorners2" className = 'col-md-11 m-auto'>
+            <td>{ post.description }</td>
+            <button type="button" className="btn btn-outline-warning float-right" onClick={this.clickAddLike.bind(this,post._id)}>Liked: {post.Liked_number}</button>
+            <br/>
+            <br/>
+      </p>
+      <div className = 'text-float-right'>{ post.published_date }
+      </div>
     </div>
 
     return (
       <div className="ShowPostDetails">
         <div className="container">
           <div className="row">
-            <div className="col-md-10 m-auto">
+            <div className="col-md-12 m-auto">
               <br /> <br />
               <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
@@ -260,29 +258,32 @@ class showPostDetails extends Component {
           <div>
             { PostItem }
           </div>
-
+          <h4 className = 'warning'>{this.state.UserState}</h4>
           <div className="message">
-          <table className="table table-hover table-dark">
-            <h1>CommentList: </h1> 
+          <br/>
+          <h4 className = 'comment lead'>Comments: </h4>
+          <div> 
             {commentList}
-          </table>
+          </div>
           </div>
           
-          <div className="row">
-            <div className="col-md-6">
-              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClickAllMessage.bind(this,post._id)}>Clear Message</button><br />
-              <h3>{this.state.UserState}</h3>
+          <div className="row col-md-11 m-auto">
+            <div className="col-md-6 ">
+            <br/>
+              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClickAllMessage.bind(this,post._id)}>Clear Comments</button><br />
+              {/*<h4 className = 'warning'>{this.state.UserState}</h4>*/}
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-6 ">
+            <br/>
               <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,post._id)}>Delete Post</button><br />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 ">
               <Link to={{pathname:`/edit-Post/${post._id}`, 
                             state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
                             userId: this.state.userId}}} className="btn btn-outline-info btn-lg btn-block">
-                    Add message
+                    Add Comment
               </Link>
               <br />
             </div>

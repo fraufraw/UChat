@@ -65,7 +65,7 @@ class Searchdescription extends Component {
       <div className="Searchdescription">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-11 m-auto">
               <br />
               <Link to={{pathname:"/search", 
               state:{UserName: this.state.UserName,
@@ -74,15 +74,17 @@ class Searchdescription extends Component {
                   Back
               </Link>
             </div>
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Search Post by Description</h1>
-
+            <div className="col-md-11 m-auto">
+              <h1 className="display-4 text-center">Search Contents</h1>
+                <hr/>
+                <br/>
+                <br/>
               <form noValidate onSubmit={this.onSubmit}>
 
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='keyword of the Post'
+                    placeholder='keyword of the Post Contents'
                     name='keyword'
                     className='form-control'
                     value={this.state.keyword}

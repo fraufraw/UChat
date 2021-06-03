@@ -1,25 +1,25 @@
 # CS35L-Spring2021 Group10 Project
-Project Name:
+Project Name:<br />
     Uchat
 
-Description:
+Description:<br />
 
 
-Features:
+Features:<br />
 
 
-Group Members:
-    Haoyang Li
-    Weiyi You
-    Peifeng Xie
-    Franklin
-    Jiyuan Xiao
+Group Members:<br />
+    Haoyang Li<br />
+    Weiyi You<br />
+    Peifeng Xie<br />
+    Franklin<br />
+    Jiyuan Xiao<br />
     William Wei
 
-Professor:
+Professor:<br />
     Paul R. Eggert
 
-Teacher's Assistant:
+Teacher's Assistant:<br />
     Daniel Meirovitch
 
 # To Run
@@ -36,6 +36,7 @@ When download finished, folder 'CS35L-Spring2021' will be in your directory. Ope
 ### `cd  CS35L-Spring2021/`
 
 Inside the 'CS35L-Spring2021' folder, you will see folder 'MERN_new' and folder 'OldVersion'
+
 Folder 'OldVersion' contains the source code of our early development 
 
 To run the program, please opened 'MERN_new':
@@ -43,6 +44,7 @@ To run the program, please opened 'MERN_new':
 ### `cd  MERN_new/`
 
 This is our project's main directory
+
 In the project directory, you need to run:
 
 ### `npm install`
@@ -71,3 +73,4 @@ to open your web app
 
 Learn how to build a MERN app from "The MERN stack: A complete tutorial" Nur Islam Blog November 15, 2020 
 reference from https://blog.logrocket.com/mern-stack-tutorial/ 
+

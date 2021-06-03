@@ -58,7 +58,7 @@ class OthersPosts extends Component {
       <div className="Searchtitle">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-11 m-auto">
               <br />
               <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
@@ -66,9 +66,11 @@ class OthersPosts extends Component {
                   Back
               </Link>
             </div>
-            <div className="col-md-8 m-auto">
+            <div className="col-md-10 m-auto">
               <h1 className="display-4 text-center">{this.state.publisher}{"'s Profile"}</h1>
-              <h4> {this.state.publisher} {"'s Profile"}</h4>
+              <br/>
+              <hr/>
+              <h4 className = 'text-1 lead'> {this.state.publisher} {"'s Posts"}</h4>
               <div className="list">
                 {postList}
               </div>

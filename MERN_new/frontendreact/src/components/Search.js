@@ -56,37 +56,44 @@ class Search extends Component {
       <div className="Search">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-11">
               <br />
               <Link to={{pathname:"/show-list", state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
                             userId: this.state.userId}}} className="btn btn-outline-warning float-left">
                   Back
               </Link>
-  
-            </div>
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Search</h1>
+              <br />
+              <br />
+              <h1 className="display-4 text-center">Search Posts</h1>
+              <hr />
+              <br />
+              <br />
+              <br />
               <Link to={{pathname: "/searchdescription",state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
-                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
-                SEARCH BY DESCRIPTION
-              </Link>  
+                            userId: this.state.userId}}} className="btn btn-outline-warning">
+                Search By Content
+              </Link> 
+              <br />
+              <br />
+              <br />
+              <br />
               <Link to={{pathname: "/searchcomment",state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
-                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
-                SEARCH BY COMMENT
-              </Link>      
+                            userId: this.state.userId}}} className="btn btn-outline-warning">
+                Search By Comment
+              </Link> 
+              <br />
+              <br />
+              <br />
+              <br />
               <Link to={{pathname: "/searchtitle",state:{UserName: this.state.UserName,
                             PassWord: this.state.PassWord,
-                            userId: this.state.userId}}} className="btn btn-outline-warning float-right">
-                SEARCH BY TITLE
+                            userId: this.state.userId}}} className="btn btn-outline-warning">
+                Search By Title
               </Link>
-
-
-
-
-          </div>
+              </div>
           </div>
         </div>
       </div>

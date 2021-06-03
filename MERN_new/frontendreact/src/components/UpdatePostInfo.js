@@ -100,8 +100,8 @@ class UpdatePostInfo extends Component {
               </Link>
             </div>
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Add Comment</h1>
-              <p className="lead text-center">
+              <h1 className="display-4 text-center white-text">Comment</h1>
+              <p className="lead text-center white-text">
                   Add Message's Info
               </p>
             </div>
@@ -111,17 +111,18 @@ class UpdatePostInfo extends Component {
           
           <form noValidate onSubmit={this.onSubmit}>
             <div className='form-group'>
-            <label htmlFor="author">Message</label>
-              <input
+            <label className = 'white-text' htmlFor="author">Comment:</label>
+              <textarea
                 type='text'
-                placeholder='Message'
+                placeholder='Comment'
                 name='message'
                 className='form-control'
+                rows = '10'
                 value={this.state.message}
                 onChange={this.onChange}
               />
             </div>
-            <button type="submit" className="btn btn-outline-info btn-lg btn-block">Update Message</button>
+            <button type="submit" className="btn btn-outline-info btn-lg btn-block">Submit</button>
             </form>
           </div>
 
