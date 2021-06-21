@@ -1,6 +1,4 @@
-# CS35L-Spring2021 Group10 Project
-Project Name:
-- Uchat
+UChat
 
 Description:
 - A user communication platform which works as Piazza to let users post their topic(can be questions or anything worth discussing) and let all users answer questions or show their feelings.
