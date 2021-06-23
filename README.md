@@ -12,7 +12,7 @@ Features:
 - Unique Feature #3: User profile and other user’s profile 
 - Unique Feature #4: Deletion of data based on publishers and users
 
-Group Members:
+Contributors:
 - Haoyang Li (skyli00)
 - Weiyi You (yywwwyy and Weiyi)
 - Peifeng Xie (Peifeng725)
@@ -20,26 +20,20 @@ Group Members:
 - Jiyuan Xiao (JiyuanXiao)
 - William Wei (williamwei7062)
 
-Professor:<br />
-- Paul R. Eggert
-
-Teacher's Assistant:<br />
-- Daniel Meirovitch
-
 # To Run
 First clone this program to your favor local path:
 ```
-git clone git@github.com:fwang27/CS35L-Spring2021.git
+git clone git@github.com:fwang27/UChat
 ```
 or
 ```
-git clone https://github.com/fwang27/CS35L-Spring2021.git
+git clone https://github.com/fwang27/UChat
 ```
-When download finished, folder 'CS35L-Spring2021' will be in your directory. Open the folder: 
+When download finished, folder 'UChat' will be in your directory. Open the folder: 
 ```
 cd  CS35L-Spring2021/
 ```
-Inside the 'CS35L-Spring2021' folder, you will see folder 'MERN_new' and folder 'OldVersion'
+Inside the 'UChat' folder, you will see folder 'MERN_new' and folder 'OldVersion'
 
 Folder 'OldVersion' contains the source code of our early development 
 
