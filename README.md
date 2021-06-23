@@ -31,7 +31,7 @@ git clone https://github.com/fwang27/UChat
 ```
 When download finished, folder 'UChat' will be in your directory. Open the folder: 
 ```
-cd  CS35L-Spring2021/
+cd  UChat/
 ```
 Inside the 'UChat' folder, you will see folder 'MERN_new' and folder 'OldVersion'
 
