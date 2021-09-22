@@ -16,7 +16,7 @@ Contributors:
 - Haoyang Li (skyli00)
 - Weiyi You (yywwwyy and Weiyi)
 - Peifeng Xie (Peifeng725)
-- Franklin Wang (fwang27)
+- Franklin Wang (fraufraw)
 - Jiyuan Xiao (JiyuanXiao)
 - William Wei (williamwei7062)
 
